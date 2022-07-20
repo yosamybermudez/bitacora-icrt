@@ -11,9 +11,20 @@
         "doctrine/doctrine-bundle": "^2.6",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
+        "fakerphp/faker": "^1.19",
+        "friendsofsymfony/ckeditor-bundle": "^2.4",
+        "friendsofsymfony/rest-bundle": "^3.3",
+        "php-flasher/flasher-noty-symfony": "^1.7",
+        "php-flasher/flasher-notyf-symfony": "^1.7",
+        "php-flasher/flasher-symfony": "^1.7",
+        "php-flasher/flasher-toastr-symfony": "^1.7",
         "phpdocumentor/reflection-docblock": "^5.3",
+        "phpoffice/phpspreadsheet": "^1.23",
         "phpstan/phpdoc-parser": "^1.5",
+        "ramsey/uuid-doctrine": "^1.8",
+        "rlanvin/php-rrule": "^2.3",
         "sensio/framework-extra-bundle": "^6.1",
+        "simshaun/recurr": "^5.0",
         "symfony/asset": "5.4.*",
         "symfony/console": "*",
         "symfony/doctrine-messenger": "5.4.*",
@@ -24,6 +35,7 @@
         "symfony/framework-bundle": "*",
         "symfony/http-client": "5.4.*",
         "symfony/intl": "5.4.*",
+        "symfony/ldap": "5.4.*",
         "symfony/mailer": "5.4.*",
         "symfony/mime": "5.4.*",
         "symfony/monolog-bundle": "^3.0",
@@ -38,12 +50,21 @@
         "symfony/string": "5.4.*",
         "symfony/translation": "5.4.*",
         "symfony/twig-bundle": "5.4.*",
+        "symfony/uid": "5.4.*",
+        "symfony/ux-chartjs": "^2.1",
+        "symfony/ux-cropperjs": "^2.1",
+        "symfony/ux-dropzone": "^2.1",
+        "symfony/ux-lazy-image": "^2.1",
+        "symfony/ux-swup": "^2.1",
+        "symfony/ux-turbo": "^2.1",
         "symfony/validator": "5.4.*",
         "symfony/web-link": "5.4.*",
-        "symfony/webpack-encore-bundle": "^1.12",
+        "symfony/webpack-encore-bundle": "^1.14",
         "symfony/yaml": "*",
+        "tattali/calendar-bundle": "^1.2",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.19"
     },
     "config": {
         "allow-plugins": {
@@ -75,7 +96,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "ckeditor:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -94,6 +116,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
