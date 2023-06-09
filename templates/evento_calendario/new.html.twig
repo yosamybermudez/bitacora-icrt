@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EventoCalendario{% endblock %}
+
+{% block body %}
+    <h1>Create new EventoCalendario</h1>
+
+    {{ include('evento_calendario/_form.html.twig') }}
+
+    <a href="{{ path('app_evento_calendario_index') }}">back to list</a>
+{% endblock %}

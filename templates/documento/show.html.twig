@@ -1,0 +1,84 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Documento' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">
+                    <a class="text-muted" href="{{ path('app_documento_index') }}">{{ title }}</a>
+                    /</span> Datos del documento</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                    {% include 'includes/form_delete_show.html.twig' with {'path' : 'app_documento_delete', 'entity' : documento } %}
+                    <li class="nav-item ms-2">
+                        <a class="nav-link bg-secondary text-white" href="{{ path('app_documento_edit', {'id': documento.id }) }}">Editar</a>
+                    </li>
+                {% endif %}
+                {% if documento.adjunto %}
+                    {% set ext = documento.adjunto | split('.') | last %}
+                    <li class="nav-item">
+                        <a download="{{ documento.titulo }}-{{ "now"|date('YmdHis') }}.pdf" class="btn btn-primary" href="{% include 'includes/documento_adjunto.html.twig' with {'documento' : documento } %}" target="_blank">
+                            {#                            <span class="bx bx-lg text-success bxs-file-{{ ext }}"></span>#}
+                            Descargar
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th>Título</th>
+                            <td>{{ documento.titulo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Descripción</th>
+                            <td>{{ documento.descripcion ? documento.descripcion | raw : 'No existe descripción' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adjunto</th>
+                            <td>
+                                {% if documento.adjunto %}
+                                    {% set ext = documento.adjunto | split('.') | last %}
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#adjunto">
+                                        Vista previa
+                                    </button>
+                                    <div class="modal fade" id="adjunto" tabindex="-1" aria-modal="true" role="dialog">
+                                        <div class="modal-dialog modal-fullscreen modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">
+                                                       Vista preliminar
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    {% include 'includes/documento_adjunto_embed.html.twig' with {'documento' : documento} %}
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                                        Cancelar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

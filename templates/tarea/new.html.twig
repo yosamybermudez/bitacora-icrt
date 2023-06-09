@@ -1,0 +1,171 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Tarea' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">Tarea /</span> Datos de la tarea</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item ms-2">
+                    <button type="submit" class="nav-link bg-primary text-white">Confirmar</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-secondary text-white" href="{{ app.request.headers.get('referer') is null ? app.request.headers.get('referer') : path('app_tareas_periodicas') }}">Cancelar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-xxl">
+        <div id="card-holder" class="row">
+            <div class="col-md-12">
+                <div class="card mb-4"  id="tarea-datos-generales">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Datos generales</h5>
+                        <small class="text-muted float-end"></small>
+                    </div>
+                    <div class="card-body">
+                        {{ form_widget(form.general) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card mb-4" id="tarea-repetir-evento">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Repetir evento</h5>
+                        <small class="text-muted float-end"></small>
+                    </div>
+                    <div class="card-body">
+                        {{ form_widget(form.repeticion) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card mb-4" id="tarea-especifica">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0">Tarea específca</h5>
+                        <small class="text-muted float-end"></small>
+                    </div>
+                    <div class="card-body">
+                        {{ form_widget(form.tarea_especifica) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        var checkbox_tarea_periodica = $('#tarea_general_periodica');
+        var select_repeticion_frequency = $('#tarea_repeticion_frequency');
+
+
+        function updateTareaPeriodica(){
+            if(checkbox_tarea_periodica.is(':checked')){
+                $('#tarea-especifica').parent().hide();
+                $('#tarea-repetir-evento input').removeAttr('disabled');
+                $('#tarea-repetir-evento').parent().show();
+            } else {
+                $('#tarea-especifica').parent().show();
+                $('#tarea-repetir-evento input').attr('disabled', 'disabled');
+                $('#tarea-repetir-evento').parent().hide();
+                $('#tarea_repeticion_fecha_inicio').val('');
+                select_repeticion_frequency.val('NO');
+            }
+        }
+
+        function updateRepeticionFrequency(){
+            if(select_repeticion_frequency.val() === 'NO'){
+                $('#tarea_repeticion_interval').attr('disabled', 'disabled');
+                $('#tarea_repeticion_by_month_days').attr('disabled', 'disabled');
+                $('#tarea_repeticion_by_day input[type="checkbox"]').attr('disabled', 'disabled');
+            } else {
+                $('#tarea_repeticion_interval').removeAttr('disabled');
+                $('#tarea_repeticion_by_month_days').removeAttr('disabled');
+                $('#tarea_repeticion_by_day input[type="checkbox"]').removeAttr('disabled');
+            }
+        }
+
+        checkbox_tarea_periodica.change(function () {
+            updateTareaPeriodica();
+            updateRepeticionFrequency();
+        });
+
+        select_repeticion_frequency.on('change', function(){
+            updateRepeticionFrequency();
+        });
+
+        updateTareaPeriodica();
+        updateRepeticionFrequency();
+    </script>
+    <script>
+        const input = $("input.taginput-monthdays"),
+            form = $('form');
+        input.wrap('<ul class="form-control p-0" id="taginput"></ul>');
+        const ul = document.querySelector("ul#taginput");
+        const label = $('.label-tagsinput');
+        label.append('<span id="tags-count" class="ms-2"></span>');
+        let tags = input.val() === '' ? [] : $.map(input.val().split(','), function(value){
+            return parseInt(value);
+        });
+        input.val('');
+        createTag();
+        function updateCount() {
+             $('#tags-count').html(tags.length + " / 31");
+            if(tags.length === 31){
+                $('#tags-count').addClass('text-danger');
+                input.hide();
+            } else {
+                $('#tags-count').removeClass('text-danger');
+                input.show();
+            }
+        }
+        function createTag(){
+            ul.querySelectorAll("li").forEach(li => li.remove());
+            tags.slice().reverse().forEach(tag =>{
+                let liTag = `<li class="badge bg-primary p-2 me-2 mb-2">${tag}<i class="bx bxs-x-circle cursor-pointer ms-2" onclick="remove(this, '${tag}')"></i></li>`;
+                ul.insertAdjacentHTML("afterbegin", liTag);
+            });
+            updateCount();
+        }
+        function remove(element, tag){
+            let index  = tags.indexOf(tag);
+            tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
+            element.parentElement.remove();
+            updateCount();
+        }
+        function addTag(e){
+            if(e.key === ","){
+                let tag = e.target.value.replace(/\s+/g, '');
+                tag = tag.replace(', ',',');
+                tag = tag.replace(',','');
+                if(!tags.includes(parseInt(tag)) && parseInt(tag) >= 1 && parseInt(tag) <= 31){
+                    if(tags.length <= 31){
+                    tag.split(',').forEach(tag => {
+                        if(tag !== ''){
+                            tags.push(parseInt(tag));
+                            tags.sort(function (a,b) {
+                                return a - b;
+                            });
+                            createTag();
+                            console.log(tags);
+                        }
+                    });
+                    }
+                }
+                e.target.value = "";
+            }
+        }
+        function mergeTags(){
+            form.append('<input type="hidden" name="month_days_hidden" value="' + tags + '">');
+        }
+        input.on("keyup", addTag);
+        form.on("submit", mergeTags);
+    </script>
+{% endblock %}

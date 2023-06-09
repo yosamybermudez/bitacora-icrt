@@ -1,0 +1,31 @@
+<div class="p-2 flex-fill">
+    <div class="card h-100 bg-light text-dark">
+        <h5 class="card-header d-flex text-primary">
+            <span class="bx bxs-message-square-error align-self-center pe-2"></span>Incidencias no solucionadas
+        </h5>
+        <div class="card-body">
+            {% if incidencias_no_solucionadas %}
+            <div class="list-group w-auto">
+                {% for incidencia in incidencias_no_solucionadas %}
+                    <a class="list-group-item list-group-item-action d-flex gap-2 py-2 border-0" aria-current="true">
+                        <div class="d-flex gap-2 w-100">
+                            <span class="bx bxs-star align-self-center"></span>
+                            <div class="flex-grow-1">
+                                <p class="mb-0">{{ incidencia.titulo }}</p>
+                                <p class="mb-0 opacity-75"></p>
+                            </div>
+                            {#                                    <div class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil-fill"></i> </div>#}
+                            {#                                    <small class="opacity-50 text-nowrap"></small>#}
+                        </div>
+                    </a>
+                    </a>
+                {% endfor %}
+            </div>
+            {% else %}
+                <p class="text-gray">
+                    No existen incidencias registradas
+                </p>
+            {% endif %}
+        </div>
+    </div>
+</div>

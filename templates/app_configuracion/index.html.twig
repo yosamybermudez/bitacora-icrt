@@ -1,0 +1,65 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Varibles de configuración' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+{#            <div class="d-flex justify-content-between">#}
+{#                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>#}
+{#                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">#}
+{#            </div>#}
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_configuracion_new') }}">Nuevo</a>
+                </li>
+{#                <li class="nav-item me-2">#}
+{#                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>#}
+{#                </li>#}
+            </ul>
+        </div>
+    </div>
+    {{ include('includes/delete_modal_index.html.twig') }}
+    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+        <div class="col-12">
+            <div class="card">
+                <table class="table">
+                    <thead>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th></th>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    {% for config in app_configuracions %}
+                        <tr>
+                            <td>{{ config.variable }}</td>
+                            <td>{{ config.valor }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        {% if is_granted('ROLE_ADMINISTRADOR_SISTEMA')%}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_configuracion_edit', {'id': config.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                            {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_cargo_delete', 'entity' : config }%}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+{#    <script src="{{ asset('build/sneat/vendor/libs/masonry/masonry.js') }}"></script>#}
+{#    <script src="{{ asset('build/sneat/js/card-masonry.js') }}"></script>#}
+{% endblock %}

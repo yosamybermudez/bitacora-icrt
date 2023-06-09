@@ -1,0 +1,2 @@
+2022-07-20 06:00:27 - Iniciando tarea programada, con token: 95303b6a0fe188d704c4926187822350
+2022-07-20 06:00:50 - No se pudieron enviar los mensajes

@@ -1,0 +1,96 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}Mis tareas{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">Mis tareas</h4>
+    <div>
+        <div class="card p-3" id="horizontal-example">
+            <div class="d-flex flex-row">
+                {% for i in 0..3 %}
+                    <div class="p-2 flex-fill">
+                        <div class="card bg-secondary">
+                            <div class="card-body p-3">
+                                <h5 class="card-title">Pendientes</h5>
+                                <div class="card-body p-3">
+                                    {% include'includes/card_mis_tareas.html.twig' with {'tareas': tareas, 'estado': 'pendiente'} %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="d-flex align-items-stretch card-holder" data-masonry='{"percentPosition": true }'>
+            <div class="card flex-fill">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pendientes</h5>
+                        <div class="card-body">
+                            {% for tarea in tareas | filter(tarea => tarea.estado == 'pendiente') -%}
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="card-title d-flex justify-content-between">
+                                            <h5 class="text-truncate align-self-center pe-3" >{{ tarea.tarea.titulo }}</h5>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{ path('app_tarea_show', {'id': tarea.tarea.id }) }}"><i class="bx bxs-show me-1"></i> Mostrar</a>
+                                                    {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                                        <a class="dropdown-item" href="{{ path('app_tarea_edit', {'id': tarea.tarea.id }) }}"><i class="bx bxs-edit-alt me-1"></i> Editar</a>
+                                                        <a class="dropdown-item" href="{{ path('app_tarea_delete', {'id': tarea.tarea.id }) }}"><i class="bx bxs-trash me-1"></i> Eliminar</a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="card-text">{{ tarea.tarea.descripcion|raw }}</p>
+                                        <div class="card-alert d-flex justify-content-between">
+                                            sd
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Solucionadas</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card flex-fill">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cerradas</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toLowerCase().indexOf(arg.toLowerCase()) >= 0;
+            }
+        });
+        $('#search-box').on('input', function () {
+            $('.card-search').show();
+            var filter = $(this).val();
+            var selector = ".card-body:not(:contains(" + filter + "))";
+            $('.card-search').find(selector).closest('.card-search').css('display','none');
+            $('.card-holder').masonry();
+        });
+    </script>
+{% endblock %}

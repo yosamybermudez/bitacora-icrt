@@ -1,0 +1,15 @@
+<div class="toast-container mt-3 toast-placement-ex bottom-0 end-0 zindex-5">
+  {% for key, message in app.flashes %}
+      <div class="toast fade bg-{{ key }} show m-3" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+          <div class="toast-header">
+              <i class="bx bx-bell me-2"></i>
+              <div class="me-auto fw-semibold">Notificaciones del sistema</div>
+              <small></small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+              {{ message[0] }}
+          </div>
+      </div>
+  {% endfor %}
+</div>

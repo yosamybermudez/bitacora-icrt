@@ -1,0 +1,34 @@
+<div class="p-2 flex-fill">
+    <div class="card h-100 bg-light text-dark">
+        <h5 class="card-header d-flex text-primary">
+            <span class="bx bx-calendar-exclamation align-self-center pe-2"></span>De guardia hoy
+        </h5>
+
+        <div class="card-body">
+            {% if guardia_hoy %}
+            <div class="row">
+                {% set var = {
+                    'VSN 1' : 'InformaticoVSN1',
+                    'VSN 2' : 'InformaticoVSN2',
+                    'Corporativa' : 'InformaticoCorporativa',
+                    'Estudio' : 'TecnicoEstudio'}
+                %}
+                {% for key, value in var %}
+                    <a class="col-6 text-center link-dark" href="{{ path('app_trabajador_show', {'id' : attribute(attribute(guardia_hoy, value), 'id') }) }}">
+{#                        <img src="{{ attribute(attribute(guardia_hoy, value), 'foto')}}" class="rounded-circle me-2" width='75' height='75'>#}
+                        <img src="{% include 'includes/trabajador_foto.html.twig' with { 'trabajador' : attribute(guardia_hoy, value) }%}" class="rounded-circle me-2" width='75' height='75'>
+
+                        <p class="mb-0">{{ attribute(attribute(guardia_hoy, value), 'nombreCompleto') }}</p>
+                        <p class="fst-italic"><small>{{ key }}</small></p>
+                    </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-gray">
+                No existe ningún grupo planificado para la jornada actual
+            </p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>

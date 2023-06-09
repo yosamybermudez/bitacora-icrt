@@ -1,0 +1,111 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Incidencia: ' ~ incidencia.titulo %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">
+                    <a class="text-muted" href="{{ path('app_incidencia_index') }}">Incidencia</a>
+                    /</span> Datos de la incidencia</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item me-2">
+                    <a class="btn btn-primary" href="{{ path('app_incidencia_new') }}">Nuevo</a>
+                </li>
+                {% if incidencia.estado != 'solucionada' %}
+                    <li class="nav-item me-2">
+                        {% if incidencia.tipo.nombre == 'Cambio de contraseña' %}
+                            {%  set url_solucion = path('app_incidencia_new_cambio_credencial', {'incidencia': incidencia.id }) %}
+                        {% else %}
+                            {%  set url_solucion = path('app_incidencia_registrar_solucion', {'id': incidencia.id }) %}
+                        {% endif %}
+                        <a class="btn btn-secondary" href="{{ url_solucion }}">Registrar solución</a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                    <li class="nav-item me-2">
+                        <a class="btn btn-secondary" href="{{ path('app_incidencia_edit', {'id' : incidencia.id }) }}">Editar</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        {% include 'includes/delete_form.html.twig' with {'path' : 'app_incidencia_delete', 'entity' : incidencia } %}
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th>Título</th>
+                            <td>
+                                <h5>{{ incidencia.titulo }}</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Estado</th>
+                            <td>
+                                {% set array = {'pendiente' : 'danger', 'solucionada' : 'success' } %}
+                                <span class="badge-search badge bg-{{ array[incidencia.estado] }} me-1">{{ incidencia.estado }}</span>
+                            </td>
+                        </tr>
+                        {% if incidencia.areas | length != 0 %}
+                            <tr>
+                                <th>Areas</th>
+                                <td>
+                                    {% for area in incidencia.areas %}
+                                        <span class="badge-search badge bg-secondary me-1">{{ area.nombre }}</span>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        {% if incidencia.etiquetas | length != 0 %}
+                            <tr>
+                                <th>Etiquetas</th>
+                                <td>
+                                    {% for etiqueta in incidencia.etiquetas %}
+                                        <span class="badge-search badge bg-label-primary me-1">{{ etiqueta }}</span>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                        <tr>
+                            <th>Problema</th>
+                            <td>{{ incidencia.problema | raw }}</td>
+                        </tr>
+                        {% if incidencia.adjuntoProblema != ''%}
+                        <tr>
+                            <th>Adjunto (problema)</th>
+                            <td>
+                                <img class="img-thumbnail w-100" src="{{ asset('uploads/incidencias/problemas/') }}{{ incidencia.adjuntoProblema }}">
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% if incidencia.solucion != '' %}
+                            <tr>
+                                <th>Solución</th>
+                                <td>{{ incidencia.solucion | raw }}</td>
+                            </tr>
+                            {% if incidencia.adjuntoSolucion != '' %}
+                                <tr>
+                                    <th>Adjunto (solución)</th>
+                                    <td>
+                                        <img class="img-thumbnail w-100" src="{{ asset('uploads/incidencias/soluciones/') }}{{ incidencia.adjuntoSolucion }}">
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                        {% include 'includes/show_meta_data.html.twig' with {'entity' : incidencia } %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

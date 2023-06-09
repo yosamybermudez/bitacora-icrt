@@ -1,0 +1,127 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %} Incidencia{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">Incidencia /</span> Solución de la incidencia</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item ms-2">
+                    <button type="submit" class="nav-link bg-primary text-white">Confirmar</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-secondary text-white" href="{{ path('app_tarea_index') }}">Cancelar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-xxl">
+        <div id="card-holder" class="row" data-masonry='{"percentPosition": true }'>
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Título</label>
+                            <div>
+                                {{ tarea.tarea.titulo }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descripción</label>
+                            <div>
+                                {{ tarea.tarea.descripcion | raw }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Responsables</label>
+                            <div>
+                                {% if tarea.asignadoA | length > 0 %}
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                        {% for usuario in tarea.asignadoA %}
+                                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-md pull-up" title="" data-bs-original-title="{{ usuario.trabajador.nombreCompleto }}">
+                                                <img src="{% include 'includes/trabajador_foto.html.twig' with {'trabajador' : usuario.trabajador } %}" alt="Avatar" class="rounded-circle shadow-lg">
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    Asignado a todos los especialistas del área
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="divider"><div class="divider-text"><i class="bx bxs-bookmark-star"></i></div></div>
+                        {{ form_widget(form) }}
+                        <div class="divider"><div class="divider-text"><i class="bx bxs-bookmark-star"></i></div></div>
+                        <div class="mb-3">
+                            <label class="form-label">Áreas</label>
+                            <div>
+                                {% for area in tarea.tarea.areas %}
+                                    <span class="badge bg-secondary">{{ area.nombre }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fecha de cumplimiento</label>
+                            <div>
+                                {% if tarea.fechaCumplimiento %}
+                                    {{ tarea.fechaCumplimiento | date('d/m/Y') }}
+                                {% else %}
+                                    Sin fecha de cumplimiento registrada
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Registro</label>
+                            <div>
+                                {{ tarea.creadoPor.trabajador.nombreCompleto }} <img class="d-inline rounded-circle shadow-lg avatar avatar-xs mx-1" src="{% include 'includes/trabajador_foto.html.twig' with {'trabajador' : tarea.creadoPor.trabajador } %}"> , en {{ tarea.creadoEn | date('d-m-Y h:i:s a') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form, {'render_rest' : false}) }}
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="incidencia-solucion-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Imagen adjunta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        var alink = $('a[download]');
+        var replacement = '<button type="button" class="btn btn-primary" ' +
+            'data-bs-toggle="modal" data-bs-target="#incidencia-solucion-modal">\n' +
+            'Ver imagen adjunta\n' +
+            '</button>';
+        var img = '<img class="img-thumbnail mx-auto rounded img-fluid h-100" src="' + alink.attr('href') + '">';
+        alink.replaceWith(replacement);
+        // $(html).appendTo('body').modal();
+        $('button[data-bs-target="#incidencia-solucion-modal"]').click(function (e) {
+            $('#incidencia-solucion-modal .modal-body').html(img);
+        });
+        $('input[type="checkbox"]').closest('div.form-check').addClass('form-check-inline form-switch');
+        $('input[type="file"]').addClass('mb-3');
+
+    </script>
+{% endblock %}
+

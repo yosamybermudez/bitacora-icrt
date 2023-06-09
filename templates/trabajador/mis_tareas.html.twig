@@ -1,0 +1,41 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}Mis tareas{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">Mis tareas</h4>
+
+    <div class="card">
+        <div class="row row-bordered g-0">
+            {% set estados = {'secondary' : 'pendiente', 'warning' : 'solucionada', 'danger' : 'cerrada' } %}
+            {% for bg, estado in estados %}
+            <div class="col-md-4 p-4">
+                <h5 class="card-header p-2">{{ estado | capitalize }}s</h5>
+                <div class="card-body p-1">
+                    {% for tarea in tareas | filter(tarea => tarea.estado == estado) -%}
+                        {% include'includes/card_mis_tareas.html.twig' with {'tarea': tarea, 'estado': estado, 'bg' : bg } %}
+                    {% endfor %}
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toLowerCase().indexOf(arg.toLowerCase()) >= 0;
+            }
+        });
+        $('#search-box').on('input', function () {
+            $('.card-search').show();
+            var filter = $(this).val();
+            var selector = ".card-body:not(:contains(" + filter + "))";
+            $('.card-search').find(selector).closest('.card-search').css('display','none');
+            $('.card-holder').masonry();
+        });
+    </script>
+{% endblock %}

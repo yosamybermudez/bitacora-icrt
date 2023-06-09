@@ -1,0 +1,109 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse overflow-auto">
+{#    {% set actual = path(app.request.attributes.get('_route')) %}#}
+    {% set actual = '' %}
+    <div class="position-sticky pt-3">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+            <span>Principal</span>
+        </h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_index')) %}active{% endif %}" aria-current="page" href="{{ path('app_index') }}">
+                    <span data-feather="home" class="align-text-bottom"></span>
+                    Tablero
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_index')) %}active{% endif %}" href="{{ path('app_incidencia_index') }}">
+                    <span data-feather="file" class="align-text-bottom"></span>
+                    Incidencias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_index')) %}active{% endif %}" href="{{ path('app_tarea_index') }}">
+                    <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                    Tareas
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_index')) %}active{% endif %}" href="{{ path('app_guardia_index') }}">
+                    <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+                    Guardias
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_credencial_index')) %}active{% endif %}" href="{{ path('app_credencial_index') }}">
+                    <span data-feather="users" class="align-text-bottom"></span>
+                    Credenciales
+                </a>
+            </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+            <span>Perfil</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+                <a class="nav-link {% if(actual == path('app_user_profile')) %}active{% endif %}" href="{{ path('app_user_profile') }}">
+                    <span data-feather="user" class="align-text-bottom"></span>
+                    Mi perfil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_logout') }}">
+                    <span data-feather="log-out" class="align-text-bottom"></span>
+                    Cerrar sesión
+                </a>
+            </li>
+        </ul>
+
+        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                <span>Configuración</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_usuario_index')) %}active{% endif %}" href="{{ path('app_usuario_index') }}">
+                        <span data-feather="users" class="align-text-bottom"></span>
+                        Usuarios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_rol_index')) %}active{% endif %}" href="{{ path('app_rol_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Roles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_tarea_tipo_index')) %}active{% endif %}" href="{{ path('app_tarea_tipo_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Tipos de tareas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_trabajador_index')) %}active{% endif %}" href="{{ path('app_trabajador_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Trabajadores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_area_index')) %}active{% endif %}" href="{{ path('app_area_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Áreas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_cargo_index')) %}active{% endif %}" href="{{ path('app_cargo_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Cargos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if(actual == path('app_guardia_equipo_index')) %}active{% endif %}" href="{{ path('app_guardia_equipo_index') }}">
+                        <span data-feather="file-text" class="align-text-bottom"></span>
+                        Equipos de guardia
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    </div>
+</nav>

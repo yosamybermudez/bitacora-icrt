@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CronTareaProgramada{% endblock %}
+
+{% block body %}
+    <h1>CronTareaProgramada</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cron_tarea_programada.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cron_tarea_programada.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Recurrencia</th>
+                <td>{{ cron_tarea_programada.recurrencia }}</td>
+            </tr>
+            <tr>
+                <th>Habilitada</th>
+                <td>{{ cron_tarea_programada.habilitada ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ cron_tarea_programada.username }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ cron_tarea_programada.password }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ cron_tarea_programada.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>CreadoEn</th>
+                <td>{{ cron_tarea_programada.creadoEn ? cron_tarea_programada.creadoEn|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cron_tarea_programada_index') }}">back to list</a>
+
+    <a href="{{ path('app_cron_tarea_programada_edit', {'id': cron_tarea_programada.id}) }}">edit</a>
+{% endblock %}

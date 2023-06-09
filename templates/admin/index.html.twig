@@ -1,0 +1,85 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Tablero de administración' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <a href="{{ path('app_admin_dominio_corporativa') }}">Domino</a>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light"></span>{{ title }}</h4>
+        </div>
+    </div>
+    <div>
+        <div class="col-12">
+            <div class="card h-100 bg-light text-dark">
+                <h5 class="card-header text-primary">
+                    <span class="bx bx-task align-self-center pe-2"></span> Cron: Tareas programadas
+                </h5>
+                <div class="card-body">
+                    <div class="d-flex">
+                        <label class="flex-grow-1 form-label">Mensajes diarios Telegram</label>
+                        <div>
+                            <span class="badge bg-label-{{ tarea_mensajes_diarios_telegram_status['clase'] }}">{{ tarea_mensajes_diarios_telegram_status['mensaje'] }}</span>
+                        </div>
+                    </div>
+                    <p>
+                        Tarea programada para el envío diario de información al grupo de Telegram del Grupo Técnico del Canal Caribe.
+                    </p>
+                    {% if tarea_mensajes_diarios_telegram_status['mensaje'] == 'Tarea inexistente' %}
+                        <div class="alert alert-danger">
+                            <div class="d-flex">
+                                <span class="bx bx-message-alt-error bx-lg align-self-center me-3"></span>
+                                <div>
+                                    <p>La tarea no existe, es por ello que debe crearla. Para crearla, primeramente especifique la hora en que se ejecutará diariamente.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form class="form-inline d-flex" method="post" action="{{ path('app_cron_tarea_programada_main') }}">
+                                                <input type="time" name="time" value="06:00"  required="required" class="form-control me-2">
+                                                <button type="submit" name="crear_tarea_programada" class="btn btn-primary text-nowrap">Crear tarea</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if tarea_mensajes_diarios_telegram_status['mensaje'] in ['Tarea activa', 'Tarea inactiva'] %}
+                        <div class="alert alert-{{ tarea_mensajes_diarios_telegram_status['clase'] }}">
+                            <div class="d-flex">
+                                <span class="bx bx-info-circle bx-lg align-self-center me-3"></span>
+                                <div>
+                                    {% set param = tarea_mensajes_diarios_telegram_status['parametros'] %}
+                                    <p>Datos de la tarea programada</p>
+                                    <ul>
+                                        <li><strong>Estado:</strong> {{ param.estado }}</li>
+                                        <li><strong>Días:</strong> {{ param.dias }}</li>
+                                        <li><strong>Hora:</strong> {{ param.hora_inicio }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="form-inline d-flex" method="post" action="{{ path('app_cron_tarea_programada_main') }}">
+                                    <input type="time" name="time" value="{{ param.hora_inicio }}"  required="required" class="form-control me-2">
+                                    <button type="submit" name="modificar_tarea_programada" class="btn btn-primary text-nowrap me-2">Modificar</button>
+                                    <button type="submit" name="eliminar_tarea_programada" class="btn btn-danger text-nowrap me-2">Eliminar</button>
+                                    <button type="submit" name="ejecutar_tarea_programada" class="btn btn-success text-nowrap me-2">Ejecutar</button>
+                                    {% if tarea_mensajes_diarios_telegram_status['mensaje'] == 'Tarea inactiva' %}
+                                        <button type="submit" name="habilitar_tarea_programada" class="btn btn-success text-nowrap me-2">Habilitar</button>
+                                    {% endif %}
+                                    {% if tarea_mensajes_diarios_telegram_status['mensaje'] == 'Tarea activa' %}
+                                        <button type="submit" name="inhabilitar_tarea_programada" class="btn btn-secondary text-nowrap me-2">Deshabilitar</button>
+                                    {% endif %}
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

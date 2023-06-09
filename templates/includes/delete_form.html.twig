@@ -1,0 +1,27 @@
+<form id="form-delete" method="post" action="{{ path(path, {'id': entity.id}) }}">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entity.id) }}">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal">
+        <i class="bx bxs-trash me-1"></i> Eliminar
+    </button>
+    <div class="modal fade" id="delete-modal" tabindex="-1" aria-modal="true" role="dialog">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Confirmar eliminación
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Desea eliminar el elemento? Tenga en cuenta que esta acción no se puede deshacer.
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="bx bxs-trash me-1"></i>Eliminar</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

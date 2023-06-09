@@ -1,0 +1,42 @@
+<nav class="p-3 order-bottom navbar-expand-lg navbar-dark bg-dark text-light">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 me-5 text-dark text-decoration-none">
+                <img src="{{ asset('build/bootstrap5/img/logo.png') }}" width="100">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 link-light">Tareas</a></li>
+                <li><a href="#" class="nav-link px-2 link-light">Incidencias</a></li>
+                <li><a href="#" class="nav-link px-2 link-light">Credenciales</a></li>
+                <li><a href="#" class="nav-link px-2 link-light">Guardias</a></li>
+            </ul>
+
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="mdo" class="rounded-circle" width="32" height="32">
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+                    <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<nav class="p-3 border-bottom navbar-expand-lg navbar-light bg-light text-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 link-dark">Trabajadores</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Usuarios</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Roles</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark">Tipos de tareas</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav class="mb-3"></nav>

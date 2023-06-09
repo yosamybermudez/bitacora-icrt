@@ -1,0 +1,63 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        documento_adjunto:
+            uri_prefix: uploads/documentos
+            upload_destination: '%kernel.project_dir%/public/uploads/documentos'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_remove: true
+
+        trabajador_foto:
+            uri_prefix: uploads/trabajadores/avatars
+            upload_destination: '%kernel.project_dir%/public/uploads/trabajadores/avatars'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        incidencia_adjunto_problema:
+            uri_prefix: uploads/incidencias/problemas
+            upload_destination: '%kernel.project_dir%/public/uploads/incidencias/problemas'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        incidencia_adjunto_solucion:
+            uri_prefix: uploads/incidencias/soluciones
+            upload_destination: '%kernel.project_dir%/public/uploads/incidencias/soluciones'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        file_tarea_problema:
+            uri_prefix: uploads/tareas/problemas
+            upload_destination: '%kernel.project_dir%/public/uploads/tareas/problema'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        file_tarea_solucion:
+            uri_prefix: uploads/tareas/soluciones
+            upload_destination: '%kernel.project_dir%/public/uploads/tareas/solucion'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+        file_documentos:
+            uri_prefix: uploads/documentos
+            upload_destination: '%kernel.project_dir%/public/uploads/documentos'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+
+    #mappings:
+    #    products:
+    #        uri_prefix: /images/products
+    #        upload_destination: '%kernel.project_dir%/public/images/products'

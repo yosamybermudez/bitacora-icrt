@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventoCalendario index{% endblock %}
+
+{% block body %}
+    <h1>EventoCalendario index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Entidad</th>
+                <th>Entidad_id</th>
+                <th>Fecha_inicio</th>
+                <th>Fecha_fin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evento_calendario in evento_calendarios %}
+            <tr>
+                <td>{{ evento_calendario.id }}</td>
+                <td>{{ evento_calendario.entidad }}</td>
+                <td>{{ evento_calendario.entidadId }}</td>
+                <td>{{ evento_calendario.fechaInicio ? evento_calendario.fechaInicio|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evento_calendario.fechaFin ? evento_calendario.fechaFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_evento_calendario_show', {'id': evento_calendario.id}) }}">show</a>
+                    <a href="{{ path('app_evento_calendario_edit', {'id': evento_calendario.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evento_calendario_new') }}">Create new</a>
+{% endblock %}

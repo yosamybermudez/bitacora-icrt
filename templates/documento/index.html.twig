@@ -1,0 +1,93 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Documentos' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex justify-content-between">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_documento_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% include('includes/documento_modal_index.html.twig') %}
+    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+        {% if documentos == null %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        No se encontraron resultados
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% for documento in documentos %}
+                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex justify-content-between">
+                                <h5 class="text-truncate align-self-center pe-3" >{{ documento.titulo }}</h5>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item btn-edit" href="{{ path('app_documento_show', {'id': documento.id }) }}"><i class="bx bxs-show me-1"></i>Mostrar</a>
+                                        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_documento_edit', {'id': documento.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                            {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_documento_delete', 'entity': documento } %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text mb-2">
+                                {{ documento.descripcion ? documento.descripcion | raw : 'No existe descripción' }}
+                            </div>
+                            <div class="card-text mb-2">
+                                {% if documento.adjunto %}
+                                    {% set ext = documento.adjunto | split('.') | last %}
+                                    <span class="bx bx-lg text-success bxs-file-{{ ext }}"></span>
+                                    <a download="{{ documento.titulo }}-{{ "now"|date('YmdHis') }}.{{ ext | lower }}" href="{% include 'includes/documento_adjunto.html.twig' with {'documento' : documento } %}">
+                                        Descargar
+                                    </a>
+                                    {% if ext == 'pdf' %}
+                                    /
+                                    <a class="btn-show-modal cursor-pointer" href="{% include 'includes/documento_adjunto.html.twig' with {'documento' : documento } %}" data-bs-toggle="modal" data-bs-target="#documento-modal-index" data-bs-titulo="{{ documento.titulo }}">
+                                        Ver
+                                    </a>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script src="{{ asset('build/sneat/vendor/libs/masonry/masonry.js') }}"></script>
+    <script src="{{ asset('build/sneat/js/card-masonry.js') }}"></script>
+    <script type="text/javascript">
+        $('.btn-show-modal').on('click', function (e) {
+            e.preventDefault();
+            var elem = $(this);
+            $('#documento-modal-index .modal-title').append(elem.attr('data-bs-titulo'));
+            $('#documento-modal-index .modal-body embed').attr('src', elem.attr('href'));
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>BitacoraSI - {% block title %} {% endblock %}</title>
+    {% block top_styles %}{% endblock %}
+    {{ encore_entry_link_tags('app') }}
+    <link href="{{ asset('build/bootstrap5/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/bootstrap5/css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/bootstrap5/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/bootstrap5/icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/bootstrap5/css/datatables.bootstrap5.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/bootstrap5/css/scroller.bootstrap5.min.css') }}" rel="stylesheet">
+    {% block bottom_styles %}{% endblock %}
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+</head>
+<body>
+
+{% include '_themes/dashboard/header.html.twig' %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        {% include '_themes/dashboard/sidebar.html.twig' %}
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="flashes mt-3">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success mb-0">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger mb-0">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+    </div>
+</div>
+{% block top_scripts %} {% endblock %}
+{{ encore_entry_script_tags('app') }}
+<script src="{{ asset('build/bootstrap5/js/jquery-3.5.1.js') }}"></script>
+<script src="{{ asset('build/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('build/bootstrap5/js/feather.min.js') }}" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+<script src="{{ asset('build/bootstrap5/js/Chart.min.js') }}" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<script src="{{ asset('build/bootstrap5/js/dashboard.js') }}"></script>
+{% block bottom_scripts %} {% endblock %}
+</body>
+</html>

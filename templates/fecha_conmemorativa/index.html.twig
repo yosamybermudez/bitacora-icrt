@@ -1,0 +1,37 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}FechaConmemorativa index{% endblock %}
+
+{% block content %}
+    <h1>FechaConmemorativa index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Conmemoracion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fecha_conmemorativa in fecha_conmemorativas %}
+            <tr>
+                <td>{{ fecha_conmemorativa.id }}</td>
+                <td>{{ fecha_conmemorativa.fecha ? fecha_conmemorativa.fecha|date('Y-m-d') : fecha_conmemorativa.recurrencia | rrule_es }}</td>
+                <td>{{ fecha_conmemorativa.conmemoracion }}</td>
+                <td>
+                    <a href="{{ path('app_fecha_conmemorativa_show', {'id': fecha_conmemorativa.id}) }}">show</a>
+                    <a href="{{ path('app_fecha_conmemorativa_edit', {'id': fecha_conmemorativa.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fecha_conmemorativa_new') }}">Create new</a>
+{% endblock %}

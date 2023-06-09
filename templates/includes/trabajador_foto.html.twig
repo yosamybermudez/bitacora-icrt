@@ -1,0 +1,1 @@
+{% if trabajador is not null and trabajador.foto %}{{ asset(vich_uploader_asset(trabajador, 'fotoFile')) }}{% else %}{{ asset('assets/img/caribe.png') }}{% endif %}

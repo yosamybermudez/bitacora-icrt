@@ -1,0 +1,36 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Calendario' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="calendar-holder"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block top_styles %}
+    <link rel="stylesheet" href="{{ asset('assets/fullcalendar/css/core/main.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fullcalendar/css/daygrid/main.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fullcalendar/css/timegrid/main.min.css') }}">
+{% endblock %}
+
+{% block top_scripts %}
+    <script src="{{ asset('assets/fullcalendar/js/core/main.min.js') }}"></script>
+    <script src="{{ asset('assets/fullcalendar/js/interaction/main.min.js') }}"></script>
+    <script src="{{ asset('assets/fullcalendar/js/daygrid/main.min.js') }}"></script>
+    <script src="{{ asset('assets/fullcalendar/js/timegrid/main.min.js') }}"></script>
+    <script src="{{ asset('build/sneat/js/calendar.js') }}"></script>
+    <script type="text/javascript">
+        renderCalendar('{{ path('app_calendario_fetch_eventos') }}');
+    </script>
+{% endblock %}

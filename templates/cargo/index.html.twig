@@ -1,0 +1,73 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Cargos' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex justify-content-between">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_cargo_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{ include('includes/delete_modal_index.html.twig') }}
+    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+        {% if cargos == null %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        No se encontraron resultados
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% for cargo in cargos %}
+                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex justify-content-between">
+                                <h5 class="text-truncate align-self-center pe-3" >{{ cargo.nombre }}</h5>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        {% if cargo.nombre not in ['Administrador del Sistema', 'Sin cargo'] %}
+                                            <a class="dropdown-item btn-show" href="{{ path('app_cargo_show', {'id': cargo.id }) }}"><i class="bx bxs-show me-1"></i>Mostrar</a>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_JEFE_INFORMATICA') and cargo.nombre not in ['Administrador del Sistema', 'Sin cargo'] %}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_cargo_edit', {'id': cargo.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                            {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_cargo_delete', 'entity' : cargo }%}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-text d-flex mb-2">
+                                <span class="badge bg-label-primary">
+                                {{ cargo.trabajadores | length == 0 ? 'No hay trabajadores' : cargo.trabajadores | length == 1 ? cargo.trabajadores | length ~ ' trabajador' : cargo.trabajadores | length ~ ' trabajadores' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script src="{{ asset('build/sneat/vendor/libs/masonry/masonry.js') }}"></script>
+    <script src="{{ asset('build/sneat/js/card-masonry.js') }}"></script>
+{% endblock %}

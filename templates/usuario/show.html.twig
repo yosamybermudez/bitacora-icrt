@@ -1,0 +1,62 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Usuario' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">
+                    <a class="text-muted" href="{{ path('app_usuario_index') }}">{{ title }}</a>
+                    /</span> Datos del usuario</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                {% include 'includes/form_delete_show.html.twig' with {'path' : 'app_usuario_delete', 'entity' : usuario } %}
+                <li class="nav-item">
+                    <a class="nav-link bg-secondary text-white" href="{{ path('app_usuario_edit', {'id': usuario.id }) }}">Editar</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <th>Usuario</th>
+                            <td>{{ usuario.userIdentifier }}</td>
+                        </tr>
+                        <tr>
+                            <th>Roles</th>
+                            <td>
+                                {% for rol in usuario.roles %}
+                                    <span class="badge bg-label-primary me-1">
+                                            {{ render(controller(
+                                                'App\\Controller\\RolController::showNombre',
+                                                { 'id': rol }
+                                            )) }}
+                                        </span>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        {% if usuario.trabajador %}
+                        <tr>
+                            <th>Trabajador asociado</th>
+                            <td>
+                                <a class="text-secondary" href="{{ path('app_trabajador_show', {'id': usuario.trabajador.id}) }}">
+                                    {{ usuario.trabajador.nombreCompleto }}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

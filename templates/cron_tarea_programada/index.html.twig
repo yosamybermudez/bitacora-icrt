@@ -1,0 +1,98 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Cron - Tareas programadas' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex justify-content-between">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_cron_tarea_programada_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{ include('includes/delete_modal_index.html.twig') }}
+    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+        {% if cron_tarea_programadas == null %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        No se encontraron resultados
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% for tarea in cron_tarea_programadas %}
+                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex justify-content-between">
+                                <h5 class="text-truncate align-self-center pe-3" >{{ tarea.nombre }}</h5>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item btn-show" href="{{ path('app_cron_tarea_programada_show', {'id': tarea.id }) }}"><i class="bx bxs-show me-1"></i>Mostrar</a>
+                                        {% if is_granted('ROLE_ADMINISTRADOR_SISTEMA') %}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_cron_tarea_programada_edit', {'id': tarea.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                        {% endif %}
+                                        {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_cron_tarea_programada_delete', 'entity' : tarea} %}
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">{{ tarea.descripcion }}</p>
+                            <div class="card-alert d-flex justify-content-between">
+                                <div class="p-2">
+                                    <span class="badge bg-gray me-1 mb-2">{{ tarea.habilitada }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toLowerCase().indexOf(arg.toLowerCase()) >= 0;
+            }
+        });
+        // $('.btn-show').click(function (e) {
+        //     e.preventDefault();
+        //     var modal = $('#show-modal').modal();
+        //     modal.show();
+        // });
+
+        $('#search-box').on('input', function () {
+            $('.card-search').show();
+            var filter = $(this).val();
+            var selector = ".card-body:not(:contains(" + filter + "))";
+            $('.card-search').find(selector).closest('.card-search').css('display','none');
+            $('.card-holder').masonry();
+        });
+        $('.badge-search').click(function () {
+            $('input#search-box').val($(this).html()).trigger('input');
+        });
+        $('#search-box-clear').click(function () {
+            $('input#search-box').val('').trigger('input');
+
+        });
+    </script>
+{% endblock %}

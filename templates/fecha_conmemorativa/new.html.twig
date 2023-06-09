@@ -1,0 +1,11 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}New FechaConmemorativa{% endblock %}
+
+{% block content %}
+    <h1>Create new FechaConmemorativa</h1>
+
+    {{ include('fecha_conmemorativa/_form.html.twig') }}
+
+    <a href="{{ path('app_fecha_conmemorativa_index') }}">back to list</a>
+{% endblock %}

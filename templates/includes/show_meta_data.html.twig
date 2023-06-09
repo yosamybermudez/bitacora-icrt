@@ -1,0 +1,16 @@
+{% if entity.creadoEn != '' %}
+    <tr>
+        <th>Datos de registro</th>
+        <td>
+            <span class="badge bg-primary me-2">{{ entity.creadoPor.trabajador.nombreCompleto }}</span><span class="badge bg-secondary">{{ entity.creadoEn | date('d/m/Y H:i:s a') }}</span>
+        </td>
+    </tr>
+{% endif %}
+{% if entity.actualizadoEn != '' %}
+<tr>
+    <th>Última actualización</th>
+    <td>
+        <span class="badge bg-primary me-2">{{ entity.actualizadoPor.trabajador.nombreCompleto }}</span><span class="badge bg-secondary">{{ entity.actualizadoEn | date('d/m/Y H:i:s a') }}</span>
+    </td>
+</tr>
+{% endif %}

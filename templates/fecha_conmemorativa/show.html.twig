@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FechaConmemorativa{% endblock %}
+
+{% block body %}
+    <h1>FechaConmemorativa</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fecha_conmemorativa.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ fecha_conmemorativa.fecha ? fecha_conmemorativa.fecha|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Conmemoracion</th>
+                <td>{{ fecha_conmemorativa.conmemoracion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fecha_conmemorativa_index') }}">back to list</a>
+
+    <a href="{{ path('app_fecha_conmemorativa_edit', {'id': fecha_conmemorativa.id}) }}">edit</a>
+
+    {{ include('fecha_conmemorativa/_delete_form.html.twig') }}
+{% endblock %}

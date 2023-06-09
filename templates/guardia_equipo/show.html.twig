@@ -1,0 +1,72 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Equipo de guardia' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <h4 class="fw-bold mb-0 align-self-center"><span class="text-muted fw-light">
+                    <a class="text-muted" href="{{ path('app_guardia_equipo_index') }}">{{ title }}</a>
+                    /</span> Datos del cargo</h4>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                    {% include 'includes/form_delete_show.html.twig' with {'path' : 'app_guardia_equipo_delete', 'entity' : guardia_equipo } %}
+                    <li class="nav-item">
+                        <a class="nav-link bg-secondary text-white" href="{{ path('app_guardia_equipo_edit', {'id': guardia_equipo.id }) }}">Editar</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>
+                                    <h6>{{ guardia_equipo.nombre }}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Personas</th>
+                                <td>
+                                    {% set var = {
+                                        'VSN 1' : 'informaticoVsn1',
+                                        'VSN 2' : 'informaticoVsn2',
+                                        'Corporativa' : 'informaticoCorporativa',
+                                        'Estudio' : 'tecnicoEstudio'}
+                                    %}
+                                    {% for key, value in var %}
+                                        <p>
+                                            <img src="{% if attribute(attribute(guardia_equipo, value), 'foto') %}{{ asset(vich_uploader_asset(attribute(guardia_equipo, value), 'fotoFile')) }}{% else %}{{ asset('assets/img/caribe.png') }}{% endif %}" class="rounded-circle me-2 avatar-md">
+                                            <a class="col-md-3 text-center text-dark" href="{{ path('app_trabajador_show', {'id' : attribute(attribute(guardia_equipo, value), 'id') }) }}">
+                                                <span class="me-2">{{ attribute(attribute(guardia_equipo, value), 'nombreCompleto') }}</span>
+                                            </a>
+                                            <span class="badge bg-label-primary">{{ key }}</span>
+                                        </p>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Próximas guardias</th>
+                                <td>
+                                    {% for fecha in proximas_guardias %}
+                                        {% set days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] %}
+                                        <span class="badge bg-label-primary me-2 mb-2">{{ days[fecha | date('w')] }} - {{ fecha | date('d/m/Y') }}</span>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

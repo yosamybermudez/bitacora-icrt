@@ -1,0 +1,81 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Equipos de guardia' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex justify-content-between">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_guardia_equipo_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{ include('includes/delete_modal_index.html.twig') }}
+    <div class="row" id="card-holder" data-masonry='{"percentPosition": true }'>
+        {% if guardia_equipos == null %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        No se encontraron resultados
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% for equipo in guardia_equipos %}
+                    <div class="col-md-12 mb-4 card-search">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title d-flex justify-content-between">
+                                    <h5 class="text-truncate align-self-center pe-3" >{{ equipo.nombre }}</h5>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ path('app_guardia_equipo_show', {'id': equipo.id }) }}"><i class="bx bxs-show me-1"></i> Mostrar</a>
+                                            {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                                <a class="dropdown-item" href="{{ path('app_guardia_equipo_edit', {'id': equipo.id }) }}"><i class="bx bxs-edit-alt me-1"></i> Editar</a>
+                                                {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_guardia_equipo_delete', 'entity' : equipo} %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {% set var = {
+                                        'VSN 1' : 'InformaticoVSN1',
+                                        'VSN 2' : 'InformaticoVSN2',
+                                        'Corporativa' : 'InformaticoCorporativa',
+                                        'Estudio' : 'TecnicoEstudio'}
+                                    %}
+                                    {% for key, value in var %}
+                                        <a class="col-md-3 text-center text-dark" href="{{ path('app_trabajador_show', {'id' : attribute(attribute(equipo, value), 'id') }) }}">
+                                            <img src="{% if attribute(attribute(equipo, value), 'foto') %}{{ asset(vich_uploader_asset(attribute(equipo, value), 'fotoFile')) }}{% else %}{{ asset('assets/img/caribe.png') }}{% endif %}" class="rounded-circle me-2" width='75' height='75'>
+                                            <p class="mb-0">{{ attribute(attribute(equipo, value), 'nombreCompleto') }}</p>
+                                            <p class="fst-italic"><small>{{ key }}</small></p>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script src="{{ asset('build/sneat/vendor/libs/masonry/masonry.js') }}"></script>
+    <script src="{{ asset('build/sneat/js/card-masonry.js') }}"></script>
+{% endblock %}

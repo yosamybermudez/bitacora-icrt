@@ -1,0 +1,172 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}Tareas{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">Tareas{{ (categoria is defined) ? ' ' ~ categoria : '' }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_tarea_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% if tareas_especificas is defined
+        and tareas_especificas == []
+        and tareas_periodicas is defined
+        and tareas_periodicas == []
+        and categoria is not defined %}
+        {{ include('_themes/sneat/no_result_found_card.html.twig') }}
+    {% else %}
+        <div>
+            {% if (tareas_especificas is defined and tareas_especificas != null) or (categoria is defined and categoria != 'periódicas') %}
+                <div class="mb-4">
+
+                    {% if tareas_periodicas is defined and tareas_periodicas %}
+                        <h4>Tareas pendientes</h4>
+                    {% endif %}
+                    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+                        {% if tareas_especificas is defined and tareas_especificas | length > 0 %}
+                            {% for tarea in tareas_especificas %}
+                                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-title d-flex justify-content-between">
+                                                <h5 class="text-truncate align-self-center pe-3" >{{ tarea.tarea.titulo }}</h5>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ path('app_tarea_show', {'id': tarea.tarea.id }) }}"><i class="bx bxs-show me-1"></i> Mostrar</a>
+                                                        {% if tarea.estado != 'solucionada' %}
+                                                            <a class="dropdown-item" href="{{ path('app_tarea_registrar_solucion', {'id': tarea.id }) }}"><i class="bx bx-bulb me-1"></i> Registrar solución</a>
+                                                        {% endif %}
+                                                        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                                            <a class="dropdown-item" href="{{ path('app_tarea_edit', {'id': tarea.tarea.id }) }}"><i class="bx bxs-edit-alt me-1"></i> Editar</a>
+                                                            <a class="dropdown-item" href="{{ path('app_tarea_delete', {'id': tarea.tarea.id }) }}"><i class="bx bxs-trash me-1"></i> Eliminar</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="card-text">{{ tarea.tarea.descripcion|raw }}</p>
+                                            <div class="card-alert d-flex justify-content-between">
+                                                <div class="p-2">
+                                                    {% for area in tarea.tarea.areas %}
+                                                        <span class="badge bg-label-primary me-1 badge-search cursor-pointer">{{ area.nombre }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="p-2 d-flex justify-content-end">
+                                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center me-2">
+                                                        <li data-bs-toggle="tooltip" data-bs-html="true" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Registrada por {{ tarea.creadoPor.trabajador.nombreCorto }}, el {{ "now"|date('d-m-Y h:i:s a') }}">
+                                                            <img src="{% include 'includes/trabajador_foto.html.twig' with {'trabajador' : tarea.creadoPor.trabajador } %}" alt="Avatar" class="rounded-circle shadow-lg  border border-primary border-2">
+                                                        </li>
+                                                    </ul>
+                                                    {% if tarea.asignadoA | length > 0 %}
+                                                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                            {% for usuario in tarea.asignadoA %}
+                                                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="{{ usuario.trabajador.nombreCompleto }}">
+                                                                    <img src="{% include 'includes/trabajador_foto.html.twig' with {'trabajador' : usuario.trabajador } %}" alt="Avatar" class="rounded-circle shadow-lg">
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {{ include('_themes/sneat/no_result_found_card.html.twig') }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if (tareas_periodicas is defined and tareas_periodicas != null) or (categoria is defined and categoria != 'específicas') %}
+                <div>
+                    {% if tareas_especificas is defined and tareas_especificas %}
+                        <h4>Tareas periódicas</h4>
+                    {% endif %}
+                    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+                        {% if tareas_periodicas is defined and tareas_periodicas | length > 0 %}
+                            {% for tarea in tareas_periodicas %}
+                                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-title d-flex justify-content-between">
+                                                <h5 class="text-truncate align-self-center pe-3" >{{ tarea.tarea.titulo }}</h5>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ path('app_tarea_show', {'id': tarea.tarea.id }) }}"><i class="bx bxs-show me-1"></i> Mostrar</a>
+                                                        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                                            <a class="dropdown-item" href="{{ path('app_tarea_edit', {'id': tarea.tarea.id }) }}"><i class="bx bxs-edit-alt me-1"></i> Editar</a>
+                                                            <a class="dropdown-item" href="{{ path('app_tarea_delete', {'id': tarea.tarea.id }) }}"><i class="bx bxs-trash me-1"></i> Eliminar</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="card-text">{{ tarea.tarea.descripcion|raw }}</p>
+                                            <div class="card-alert d-flex justify-content-between">
+                                                <div class="p-2">
+                                                    {% for area in tarea.tarea.areas %}
+                                                        <span class="badge bg-label-primary me-1 badge-search cursor-pointer">{{ area.nombre }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="p-2 d-flex justify-content-end">
+                                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center me-2">
+                                                        <li data-bs-toggle="tooltip" data-bs-html="true" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Registrada por {{ tarea.creadoPor.trabajador.nombreCorto }}, el {{ "now"|date('d-m-Y h:i:s a') }}">
+                                                            <img src="{% include 'includes/trabajador_foto.html.twig' with {'trabajador' : tarea.creadoPor.trabajador } %}" alt="Avatar" class="rounded-circle shadow-lg  border border-primary border-2">
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            {{ include('_themes/sneat/no_result_found_card.html.twig') }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toLowerCase().indexOf(arg.toLowerCase()) >= 0;
+            }
+        });
+        $('#search-box').on('input', function () {
+            $('.card-search').show();
+            var filter = $(this).val();
+            var selector = ".card-body:not(:contains(" + filter + "))";
+            $('.card-search').find(selector).closest('.card-search').css('display','none');
+            $('.card-holder').masonry();
+        });
+        $('.badge-search').click(function () {
+            $('input#search-box').val($(this).html()).trigger('input');
+        });
+        $('#search-box-clear').click(function () {
+            $('input#search-box').val('').trigger('input');
+
+        });
+    </script>
+{% endblock %}

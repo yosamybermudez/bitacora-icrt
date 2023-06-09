@@ -1,0 +1,18 @@
+flasher:
+  presets:
+    created:
+      type: success
+      title: Notificación
+      message: Elemento creado satisfactoriamente
+    updated:
+      type: success
+      title: Notificación
+      message: Elemento modificado satisfactoriamente
+    saved:
+      type: success
+      title: Notificación
+      message: Elemento guardado satisfactoriamente
+    deleted:
+      type: success
+      title: Notificación
+      message: Elemento eliminado satisfactoriamente

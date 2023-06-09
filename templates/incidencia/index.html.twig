@@ -1,0 +1,121 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% set title = 'Incidencias' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h4 class="fw-bold py-3 mb-4">{{ title }}</h4>
+    <div class="card mb-4">
+        <div class="card-body d-flex">
+            <div class="d-flex justify-content-between">
+                <i class="bx bx-search fs-4 lh-0 align-self-center"></i>
+                <input type="text" id="search-box" class="form-control border-0 shadow-none" placeholder="Buscar..." aria-label="Buscar...">
+
+            </div>
+            <ul class="nav nav-pills flex-column flex-md-row-reverse ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_incidencia_new') }}">Nuevo</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a id="search-box-clear" class="nav-link cursor-pointer"><i class="bx bx-chevron-left-square me-1"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row card-holder" data-masonry='{"percentPosition": true }'>
+        {% if incidencias == null %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        No se encontraron resultados
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            {% for incidencia in incidencias %}
+                <div class="col-sm-6 col-lg-4 mb-4 card-search">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title d-flex justify-content-between">
+                                <h5 class="text-truncate align-self-center pe-3" >{{ incidencia.titulo }}</h5>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item btn-show" href="{{ path('app_incidencia_show', {'id': incidencia.id }) }}"><i class="bx bxs-show me-1"></i>Mostrar</a>
+                                        {% if incidencia.estado != 'solucionada' %}
+                                            {% if incidencia.tipo.nombre == 'Cambio de contraseña' %}
+                                                <a class="dropdown-item" href="{{ path('app_incidencia_new_cambio_credencial', {'incidencia': incidencia.id }) }}"><i class="bx bx-bulb me-1"></i>Registrar solución</a>
+                                            {% else %}
+                                                <a class="dropdown-item" href="{{ path('app_incidencia_registrar_solucion', {'id': incidencia.id }) }}"><i class="bx bx-bulb me-1"></i>Registrar solución</a>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_incidencia_edit', {'id': incidencia.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">{{ incidencia.problema | raw }}</p>
+                            {% if incidencia.estado == 'solucionada' %}
+                                <strong>Solución: </strong><p class="card-text">{{ incidencia.solucion | raw }}</p>
+                            {% endif %}
+                            <div class="card-alert d-flex justify-content-between">
+                                <div class="p-2">
+                                    {% if mostrar_estado is defined %}
+                                        {% set array = {'pendiente' : 'danger', 'solucionada' : 'success' } %}
+                                        <span class="badge-search badge bg-{{ array[incidencia.estado] }} me-1 mb-2 cursor-pointer">{{ incidencia.estado }}</span>
+                                    {% endif %}
+                                    {% for area in incidencia.areas %}
+                                        <span class="badge bg-label-primary me-1 mb-2">{{ area.nombre }}</span>
+                                    {% endfor %}
+                                    <span class="badge bg-gray me-1 mb-2">{{ incidencia.tipo.nombre }}</span>
+                                </div>
+                                <div class="p-2 d-flex justify-content-end">
+                                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center me-2">
+                                        <li data-bs-toggle="tooltip" data-bs-html="true" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="" data-bs-original-title="Registrada por {{ incidencia.creadoPor.trabajador.nombreCorto }}, el {{ "now"|date('d-m-Y h:i:s a') }}">
+                                            <img src="{% include 'includes/trabajador_foto.html.twig' with { 'trabajador' : incidencia.creadoPor.trabajador } %}" alt="Avatar" class="rounded-circle shadow-lg  border border-primary border-2">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $.expr[":"].contains = $.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return $(elem).text().toLowerCase().indexOf(arg.toLowerCase()) >= 0;
+            }
+        });
+        // $('.btn-show').click(function (e) {
+        //     e.preventDefault();
+        //     var modal = $('#show-modal').modal();
+        //     modal.show();
+        // });
+
+        $('#search-box').on('input', function () {
+            $('.card-search').show();
+            var filter = $(this).val();
+            var selector = ".card-body:not(:contains(" + filter + "))";
+            $('.card-search').find(selector).closest('.card-search').css('display','none');
+            $('.card-holder').masonry();
+        });
+        $('.badge-search').click(function () {
+            $('input#search-box').val($(this).html()).trigger('input');
+        });
+        $('#search-box-clear').click(function () {
+            $('input#search-box').val('').trigger('input');
+
+        });
+    </script>
+{% endblock %}

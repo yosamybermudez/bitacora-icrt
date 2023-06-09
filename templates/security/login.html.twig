@@ -1,0 +1,97 @@
+{% extends '_themes/sneat/base.html.twig' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block body %}
+<div class="container-xxl">
+  {% include '_themes/sneat/flashes.html.twig' %}
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="{{ path('app_index') }}" class="app-brand-link gap-2">
+                  <span>
+                    <img src="{{ asset('assets/img/logo.png') }}" width="70">
+                  </span>
+                  <span class="app-brand-text demo text-body fw-bolder">bitácora</span>
+                </a>
+              </div>
+              <!-- /Logo -->
+              <h4 class="mb-2">¡Bienvenido a la Bitácora! 👋</h4>
+              <p class="mb-4">Por favor, autentíquese si eres parte del grupo técnico del Canal Caribe.</p>
+
+              <form id="formAuthentication" class="mb-3" method="POST">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Usuario</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="_username"
+                    placeholder="Introduzca su usuario"
+                    tabindex="1"
+                    autofocus
+                    value="{{ last_username }}"
+                  />
+                </div>
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Contraseña</label>
+                  </div>
+                  <div class="input-group input-group-merge">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      name="_password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                      tabindex="2"
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                </div>
+                <div class="mb-3">
+                  <label for="domain" class="form-label">Dominio</label>
+                  {% if domain_fqdn is not null %}
+                    <select
+                            type="text"
+                            class="form-control"
+                            id="domain"
+                            name="_domain"
+                            tabindex="3"
+                            autofocus
+                    >
+                      <option value="{{ domain_fqdn | to_identifier }}" selected>{{ domain_fqdn }}</option>
+                      <option value="local">Local</option>
+                    </select>
+                  {% else %}
+                    <div class="alert alert-info">No hay conexión con el directorio activo. Acceda con las credenciales locales.</div>
+                  {% endif %}
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" type="submit" tabindex="3">Iniciar sesión</button>
+                </div>
+              </form>
+
+{#              <p class="text-center">#}
+{#                <span>New on our platform?</span>#}
+{#                <a href="auth-register-basic.html">#}
+{#                  <span>Create an account</span>#}
+{#                </a>#}
+{#              </p>#}
+            </div>
+          </div>
+          <!-- /Register -->
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block bottom_styles %}
+  <link href="{{ asset('build/sneat/vendor/css/pages/page-auth.css') }}" rel="stylesheet">
+{% endblock %}
