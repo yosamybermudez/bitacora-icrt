@@ -34,8 +34,29 @@ services:
             $targetDirectory: '%uploads_directory%'
 
     App\Service\BotTelegram:
-        arguments:
-            $token: '5485647380:AAGk5WVV1xAa6x141NmCyXyof9GPn_Gz-Dg'
-            $urlstart: 'https://api.telegram.org/bot'
-            $urlend: '/sendMessage'
-            $chatid: '-641264391'
+#        arguments:
+#            $token: '5485647380:AAGk5WVV1xAa6x141NmCyXyof9GPn_Gz-Dg'
+#            $urlstart: 'https://api.telegram.org/bot'
+#            $urlend: '/sendMessage'
+#            $chatid: '-495076220'
+
+#    App\Service\ActiveDirectoryService:
+#        arguments:
+#            $connection_string: 'ldaps://192.168.176.128:636'
+#            $bind_dn: 'OU=NTV,DC=domain,DC=test,DC=com'
+#            $domain_fqdn: 'Corporativa'
+#            $bind_user: 'CN=LDAP Search,CN=Users,DC=domain,DC=test,DC=com'
+#            $bind_password: 'TGQ0cFMzNHJjaDIwMjIq'
+
+    App\Security\ActiveDirectoryService:
+      arguments:
+        $connection_string: 'ldaps://10.3.5.3:636'
+        $bind_dn: 'OU=Usuarios,DC=ntv,DC=icrt,DC=cu'
+        $domain_fqdn: 'Corporativa'
+        $bind_user: 'CN=LDAP Search,CN=Users,DC=ntv,DC=icrt,DC=cu'
+        $bind_password: 'QWRtKkxkYXA0NTY='
+
+
+    App\Security\ActiveDirectoryUserService:
+        parent: App\Security\ActiveDirectoryService
+
