@@ -1,8 +1,9 @@
 <div class="dropdown-item">
     <form id="form-delete-index-{{ entity.id }}" method="post" action="{{ path(path, {'id': entity.id}) }}">
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entity.id) }}">
-        <button class="button btn-delete-index p-0 bg-transparent border-0 text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#delete-modal-index">
+        <button class="button btn-delete-index p-0 bg-transparent border-0 text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#delete-modal-index" onclick="{{ include('includes/confirm_delete.html.twig') }}">
             <i class="bx bx-trash me-1"></i>Eliminar
         </button>
+{#        {% include 'includes/delete_modal_index.html.twig' %}#}
     </form>
 </div>

@@ -11,218 +11,226 @@
     </div>
 
     <div class="menu-inner-shadow"></div>
-
     <ul class="menu-inner py-1">
-        <!-- Dashboard -->
-        <li class="menu-item">
-            <a href="{{ path('app_index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Dashboard">Tablero</div>
-            </a>
-        </li>
-
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-message-square-error"></i>
-                <div data-i18n="Settings">Incidencias</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ path('app_incidencia_new') }}" class="menu-link">
-                        <div data-i18n="New issue">Nueva incidencia</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_incidencia_new_cambio_credencial') }}" class="menu-link">
-                        <div data-i18n="New issue: Password change">Nueva incidencia: Cambio de credencial</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_incidencia_no_solucionada') }}" class="menu-link">
-                        <div data-i18n="PT">Incidencias sin solucionar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_incidencia_index') }}" class="menu-link">
-                        <div data-i18n="ST">Todas</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-task"></i>
-                <div data-i18n="Settings">Tareas</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ path('app_tarea_new') }}" class="menu-link">
-                        <div data-i18n="New task">Nueva tarea</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_tareas_periodicas') }}" class="menu-link">
-                        <div data-i18n="PT">Tareas periódicas</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_tareas_especificas') }}" class="menu-link">
-                        <div data-i18n="ST">Tareas específicas</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ path('app_tarea_index') }}" class="menu-link">
-                        <div data-i18n="ST">Todas</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ path('app_calendario') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-calendar-event"></i>
-                <div data-i18n="aa">Calendario</div>
-            </a>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ path('app_credencial_index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-lock"></i>
-                <div data-i18n="Credentials">Credenciales</div>
-            </a>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ path('app_documento_index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-file"></i>
-                <div data-i18n="Documents">Documentos</div>
-            </a>
-        </li>
-        {% if is_granted('ROLE_ADMINISTRADOR_SISTEMA') %}
-            <!-- Administración del sistema -->
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Administación del sistema</span>
-            </li>
-
+        {% if app.user %}
+            <!-- Dashboard -->
             <li class="menu-item">
-                <a href="{{ path('app_admin_dashboard') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-menu"></i>
-                    <div data-i18n="Account">Tablero</div>
+                <a href="{{ path('app_index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Dashboard">Tablero</div>
                 </a>
             </li>
 
-            <li class="menu-item">
-                <a href="{{ path('app_configuracion_index') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-code"></i>
-                    <div data-i18n="Account">Variables de configuración</div>
-                </a>
-            </li>
-        {% endif %}
-
-        <!-- Perfil -->
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Perfil</span>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ path('app_user_profile') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Account">Mi perfil</div>
-            </a>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ path('app_logout') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-power-off"></i>
-                <div data-i18n="Logout">Cerrar sesión</div>
-            </a>
-        </li>
-
-        <!-- Administración -->
-        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
-            <li class="menu-header small text-uppercase">
-                <span class="menu-header-text">Administración</span>
-            </li>
-
-            <li class="menu-item">
-                <a href="{{ path('app_mensaje') }}" class="menu-link">
-                    <i class="menu-icon tf-icons bx bxl-telegram"></i>
-                    <div data-i18n="Logout">Enviar mensaje</div>
-                </a>
-            </li>
             <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-user-circle"></i>
-                    <div data-i18n="Settings">Usuarios y roles</div>
+                    <i class="menu-icon tf-icons bx bxs-message-square-error"></i>
+                    <div data-i18n="Settings">Incidencias</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item">
-                        <a href="{{ path('app_usuario_index') }}" class="menu-link">
-                            <div data-i18n="Account">Usuarios</div>
+                        <a href="{{ path('app_incidencia_new') }}" class="menu-link">
+                            <div data-i18n="New issue">Nueva incidencia</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ path('app_rol_index') }}" class="menu-link">
-                            <div data-i18n="Rols">Roles</div>
+                        <a href="{{ path('app_incidencia_new_cambio_credencial') }}" class="menu-link">
+                            <div data-i18n="New issue: Password change">Nueva incidencia: Cambio de credencial</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ path('app_incidencia_no_solucionada') }}" class="menu-link">
+                            <div data-i18n="PT">Incidencias sin solucionar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ path('app_incidencia_index') }}" class="menu-link">
+                            <div data-i18n="ST">Todas</div>
                         </a>
                     </li>
                 </ul>
             </li>
 
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-task"></i>
+                    <div data-i18n="Settings">Tareas</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="{{ path('app_tarea_new') }}" class="menu-link">
+                            <div data-i18n="New task">Nueva tarea</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ path('app_tareas_periodicas') }}" class="menu-link">
+                            <div data-i18n="PT">Tareas periódicas</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ path('app_tareas_especificas') }}" class="menu-link">
+                            <div data-i18n="ST">Tareas específicas</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ path('app_tarea_index') }}" class="menu-link">
+                            <div data-i18n="ST">Todas</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ path('app_calendario') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                    <div data-i18n="aa">Calendario</div>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ path('app_credencial_index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-lock"></i>
+                    <div data-i18n="Credentials">Credenciales</div>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ path('app_documento_index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-file"></i>
+                    <div data-i18n="Documents">Documentos</div>
+                </a>
+            </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMINISTRADOR_SISTEMA') %}
+                <!-- Administración del sistema -->
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">Administación del sistema</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ path('app_admin_dashboard') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-menu"></i>
+                        <div data-i18n="Account">Tablero</div>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ path('app_configuracion_index') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-code"></i>
+                        <div data-i18n="Account">Variables de configuración</div>
+                    </a>
+                </li>
+            {% endif %}
+
+            <!-- Perfil -->
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Perfil</span>
+            </li>
+            {% if app.user %}
+            <li class="menu-item">
+                <a href="{{ path('app_user_profile') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user"></i>
+                    <div data-i18n="Account">Mi perfil</div>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="{{ path('app_logout') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-power-off"></i>
+                    <div data-i18n="Logout">Cerrar sesión</div>
+                </a>
+            </li>
+        {% else %}
+            <li class="menu-item">
+                <a href="{{ path('app_login') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-log-in"></i>
+                    <div>Iniciar sesión</div>
+                </a>
+            </li>
+        {% endif %}
+
+            <!-- Administración -->
             {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">Administración</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="{{ path('app_mensaje') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bxl-telegram"></i>
+                        <div data-i18n="Logout">Enviar mensaje</div>
+                    </a>
+                </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bxs-data"></i>
-                        <div data-i18n="Main data">Datos primarios</div>
+                        <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                        <div data-i18n="Settings">Usuarios y roles</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{ path('app_trabajador_index') }}" class="menu-link">
-                                <div data-i18n="Human Resources">Trabajadores</div>
+                            <a href="{{ path('app_usuario_index') }}" class="menu-link">
+                                <div data-i18n="Account">Usuarios</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{ path('app_area_index') }}" class="menu-link">
-                                <div data-i18n="Areas">Áreas</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ path('app_cargo_index') }}" class="menu-link">
-                                <div data-i18n="Jobs">Cargos</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ path('app_guardia_equipo_index') }}" class="menu-link">
-                                <div data-i18n="ccc">Grupos de guardia</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ path('app_tarea_tipo_index') }}" class="menu-link">
-                                <div data-i18n="Task types">Tipos de tareas</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ path('app_incidencia_tipo_index') }}" class="menu-link">
-                                <div data-i18n="Task types">Tipos de incidencias</div>
+                            <a href="{{ path('app_rol_index') }}" class="menu-link">
+                                <div data-i18n="Rols">Roles</div>
                             </a>
                         </li>
                     </ul>
                 </li>
+
+                {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bxs-data"></i>
+                            <div data-i18n="Main data">Datos primarios</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ path('app_trabajador_index') }}" class="menu-link">
+                                    <div data-i18n="Human Resources">Trabajadores</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ path('app_area_index') }}" class="menu-link">
+                                    <div data-i18n="Areas">Áreas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ path('app_cargo_index') }}" class="menu-link">
+                                    <div data-i18n="Jobs">Cargos</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ path('app_guardia_equipo_index') }}" class="menu-link">
+                                    <div data-i18n="ccc">Grupos de guardia</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ path('app_tarea_tipo_index') }}" class="menu-link">
+                                    <div data-i18n="Task types">Tipos de tareas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ path('app_incidencia_tipo_index') }}" class="menu-link">
+                                    <div data-i18n="Task types">Tipos de incidencias</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                {% endif %}
             {% endif %}
-        {% endif %}
 
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Sobre Bitácora</span>
-        </li>
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Sobre Bitácora</span>
+            </li>
 
-        <li class="menu-item">
-            <a href="{{ path('app_index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-info-circle"></i>
-                <div data-i18n="About us">Acerca de</div>
-            </a>
-        </li>
-
+            <li class="menu-item">
+                <a href="{{ path('app_about') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                    <div data-i18n="About us">Acerca de</div>
+                </a>
+            </li>
 
     </ul>
 </aside>

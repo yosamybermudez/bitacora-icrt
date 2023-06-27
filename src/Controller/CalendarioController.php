@@ -113,12 +113,12 @@ class CalendarioController extends AbstractController
         $calendar = [];
         $guardia_equipos = $guardiaEquipoRepository->findAll();
         foreach ($guardia_equipos as $equipo){
-            $texto = [
-                'VSN: ' . $equipo->getInformaticoVsn1()->getNombreCorto(),
-                'VSN: ' . $equipo->getInformaticoVsn2()->getNombreCorto(),
-                'Corp: ' . $equipo->getInformaticoCorporativa()->getNombreCorto(),
-                'Est/Tall: ' . $equipo->getTecnicoEstudio()->getNombreCorto()
-            ];
+            $texto = [];
+            if($equipo->getInformaticoVsn1()){ $texto[] = 'VSN: ' . $equipo->getInformaticoVsn1()->getNombreCorto(); }
+            if($equipo->getInformaticoVsn2()){ $texto[] = 'VSN: ' . $equipo->getInformaticoVsn2()->getNombreCorto(); }
+            if($equipo->getInformaticoCorporativa()){ $texto[] = 'Corp: ' . $equipo->getInformaticoCorporativa()->getNombreCorto(); }
+            if($equipo->getTecnico()){ $texto[] = 'Taller: ' . $equipo->getTecnico()->getNombreCorto(); }
+
             $rrule = new RRule($equipo->getRecurrencia());
 //            $fechas = $rrule->getOccurrencesBetween(date('Y-m-d', strtotime('01/01')), date('Y-m-d', strtotime('12/31')));
             $fechas = $rrule->getOccurrencesBetween(date('Y-m-d', strtotime("-6 months")), date('Y-m-d', strtotime('+6 months')));

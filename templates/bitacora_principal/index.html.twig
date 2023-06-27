@@ -5,10 +5,11 @@
 {% block content %}
     <h4 class="fw-bold py-3 mb-4">Tablero</h4>
 
-    <div class="d-flex flex-row mb-3">
+    <div class="d-lg-flex flex-row mb-3">
         {% include 'bitacora_principal/i_guardia_hoy.html.twig' %}
         {% include 'bitacora_principal/i_tareas_hoy.html.twig' %}
     </div>
+    {% if app.user %}
     <div class="d-flex flex-row mb-3">
         {% include 'bitacora_principal/i_incidencias.html.twig' %}
         {% include 'bitacora_principal/i_tareas_especificas.html.twig' %}
@@ -16,6 +17,7 @@
     <div class="d-flex flex-row mb-3">
         {% include 'bitacora_principal/i_calendar.html.twig' %}
     </div>
+    {% endif %}
 {% endblock %}
 
 {% block top_styles %}

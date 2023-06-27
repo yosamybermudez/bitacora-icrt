@@ -22,23 +22,6 @@ class TrabajadorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fotoFile', VichFileType::class, [
-                'required' => false,
-                'allow_delete' => true,
-                'delete_label' => 'Eliminar foto',
-                'download_label' => 'Descargar foto',
-                'asset_helper' => true,
-                'label' => 'Foto',
-                'constraints' => [
-                    new File([
-                        'maxSize' => '4M',
-                        'mimeTypes' => [
-                            'image/jpg', 'image/jpeg', 'image/png'
-                        ],
-                        'mimeTypesMessage' => 'Formatos permitidos (.jpg, .jpeg, .png)'
-                    ])
-                ]
-            ])
             ->add('nombres', TextType::class, [
                 'label' => 'Nombre(s)',
                 'attr' => [
@@ -105,6 +88,12 @@ class TrabajadorType extends AbstractType
                     'class' => 'mb-3'
                 ]
             ])
+            ->add('municipio', TextType::class, [
+                'label' => 'Municipio',
+                'row_attr' => [
+                    'class' => 'mb-3'
+                ]
+            ])
             ->add('area', EntityType::class, [
                 'class' => Area::class,
                 'choice_label' => 'nombre',
@@ -136,6 +125,23 @@ class TrabajadorType extends AbstractType
 				'required' => false,
                 'row_attr' => [
                     'class' => 'mb-3'
+                ]
+            ])
+            ->add('fotoFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Eliminar foto',
+                'download_label' => 'Descargar foto',
+                'asset_helper' => true,
+                'label' => 'Foto',
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'image/jpg', 'image/jpeg', 'image/png'
+                        ],
+                        'mimeTypesMessage' => 'Formatos permitidos (.jpg, .jpeg, .png)'
+                    ])
                 ]
             ])
         ;

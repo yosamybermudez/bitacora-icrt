@@ -1,285 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/templates/trabajador/index_table.html.twig" line="9" mnemonic="8" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="026a8c21-38e6-4a11-b3a5-36e1f8e2e71f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json.bk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/flasher.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/fos_ckeditor.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/ramsey_uuid_doctrine.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/security.yaml.bk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/routes/calendar.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/.github/workflows/main.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/docs/documentation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/billing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/rtl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/sign-in.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/sign-up.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/tables.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/pages/virtual-reality.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/found" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/css/core/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/css/daygrid/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/css/timegrid/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/js/core/main.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/js/daygrid/main.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/js/interaction/main.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fullcalendar/js/timegrid/main.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/caribe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/favicon_.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/favicon_bitacora.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/newfile.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentos/book-a-english-v1-2c-system-overview-corporate-630836a16785d466638146.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentos/dj-05-6307a66a6a542635978539.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentos/en-tiempos-de-estres-haz-lo-que-importa-62d993ee56f58883870927.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/documentos/reinstalacion-del-sql-server-en-los-cluster-630d80cd16f9f615381152.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/problemas/8f39f3b6-2b03-47b0-8342-e0c268fc76a7-62cb037072a0a213949580.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/problemas/aadb8091-9569-416a-9c90-90959a04b044-62ca14d95b061576633579.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/problemas/d2063480-f395-4d00-8dc7-261b61ba3394-62cb0b7b076a8924269479.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/problemas/png-1-62c8adee20603414771227.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/problemas/win-20220606-09-24-51-pro-2-62c60894cd786668020175.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/soluciones/como-amanecio-mi-manana-62c63001d5065310539246.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/soluciones/win-20220602-12-06-40-pro-62c62f34503e4764078881.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/incidencias/soluciones/win-20220606-09-24-51-pro-62c60894d04ac587737588.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/adrian-lozano-62d03b9a0a5e0703656362.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/adrian-veliz-62ccbf0046fb2825057906.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/adrian-veliz-62d03c12d00df095023724.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce2e58ed0e484230182.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce460a48ee157871783.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce46a78a5f103214562.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce5f1c122e031839035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce5fdb6d72888824218.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/jorge-divie-62cce6a3e66e7949445931.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/samy-62ccb821a0684002768148.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/samy-62cd64dfaf5bb296934792.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/samy-62cef85e3a78f322821002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/yurisan-macias-62ccbe1b3040c903851568.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/yurisan-macias-62cd682974398138570159.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/trabajadores/avatars/yurisan-macias-62d03b483eac1895392808.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/adrian.lozano.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/adrian.veliz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/caribe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/jorge.divie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/samy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/user-images/yurisan.macias.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/satisfiable" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AppConfiguracionController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AppController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AreaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CalendarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CargoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CredencialController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CronTareaProgramadaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/DocumentoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/EventoCalendarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/FechaConmemorativaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/GuardiaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/GuardiaEquipoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/IncidenciaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/IncidenciaTipoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/MensajeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/RolController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TareaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TareaTipoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TrabajadorController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UsuarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/AppConfiguracion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Area.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Cargo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Credencial.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/CronTareaProgramada.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Documento.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/FechaConmemorativa.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/GuardiaEquipo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Incidencia.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/IncidenciaTipo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Rol.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Tarea.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/TareaEspecifica.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/TareaRecurrencia.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/TareaTipo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Trabajador.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Usuario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EventSubscriber/CalendarSubscriber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AppConfiguracionType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AreaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CargoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CredencialType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CronTareaProgramadaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/DocumentoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/EventoCalendarioType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/FechaConmemorativaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/GuardiaEquipoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/IncidenciaCredencialType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/IncidenciaTipoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/IncidenciaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/RolType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TareaEspecificaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TareaTipoType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TareaType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TrabajadorType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/UsuarioType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Message/SendTelegramMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MessageHandler/SendTelegramMessageHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/AppConfiguracionRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/AreaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CargoRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CredencialRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CronTareaProgramadaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DocumentoRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/FechaConmemorativaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/GuardiaEquipoRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/IncidenciaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/IncidenciaTipoRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/RolRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TareaEspecificaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TareaRecurrenciaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TareaRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TareaTipoRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/TrabajadorRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UsuarioRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ActiveDirectoryService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/ActiveDirectoryUserService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/UserChecker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/UserProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/BotTelegram.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/FileUploader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Twig/AppExtension.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/bootstrap5/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/bootstrap5/navbar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/dashboard/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/dashboard/header.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/dashboard/sidebar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/base.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/flashes.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/nav.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/no_result_found_card.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/sidebar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_themes/sneat/spinner.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app_configuracion/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app_configuracion/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app_task_scheduler/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/area/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/area/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/area/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/area/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/i_calendar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/i_guardia_hoy.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/i_incidencias.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/i_tareas_especificas.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/i_tareas_hoy.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bitacora_principal/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/calendario/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cargo/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cargo/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cargo/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/credencial/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/credencial/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/credencial/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cron/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cron_tarea_programada/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cron_tarea_programada/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cron_tarea_programada/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/documento/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/documento/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/documento/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/evento_calendario/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fecha_conmemorativa/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fecha_conmemorativa/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fecha_conmemorativa/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/guardia_equipo/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/guardia_equipo/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/guardia_equipo/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/cambio_credencial.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/show_modal.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia/solucion.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia_tipo/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/incidencia_tipo/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/card_mis_tareas.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/card_mis_tareas.html.twig.bk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/delete_modal_index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/documento_adjunto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/documento_adjunto_embed.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/documento_modal_index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/form_delete_index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/form_delete_show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/left_tooltip.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/show_meta_data.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/top_tooltip.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/trabajador_foto.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mensaje/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rol/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rol/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/rol/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/404.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/change_password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/forgot_password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/login2.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea/solucion.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea_tipo/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/tarea_tipo/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/mis_tareas.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/mis_tareas.html.twig.bk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/mis_tareas.html.twig.bk2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/trabajador/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/profile.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/usuario/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="026a8c21-38e6-4a11-b3a5-36e1f8e2e71f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,61 +17,102 @@
       <executable />
     </execution>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/GuardiaEquipoController.php">
+        <entry file="file://$PROJECT_DIR$/templates/guardia_equipo/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/services.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+            <state relative-caret-position="136">
+              <caret line="41" column="102" selection-start-line="41" selection-start-column="102" selection-end-line="41" selection-end-column="102" />
+              <folding>
+                <element signature="e#12#40#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/credencial/index.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MainController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="65" column="187" selection-start-line="65" selection-start-column="187" selection-end-line="65" selection-end-column="187" />
+            <state relative-caret-position="153">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Repository/GuardiaEquipoRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/i_guardia_hoy.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding>
-                <element signature="e#3711#3741#0#Twig" expanded="true" />
+                <element signature="e#12#40#0#Twig" expanded="true" />
+                <element signature="e#213#255#0#Twig" expanded="true" />
+                <element signature="e#280#321#0#Twig" expanded="true" />
+                <element signature="e#418#460#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/ActiveDirectoryService.php">
+        <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            <state relative-caret-position="303">
+              <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+              <folding>
+                <element signature="e#4905#4936#0#Twig" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/ActiveDirectoryUserService.php">
+        <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/nav.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
+            <state>
+              <caret selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -356,7 +122,21 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Active</find>
+      <find>Mi perfil</find>
+      <find>layout-</find>
+      <find>acerca</find>
+      <find>id=&quot;delete</find>
+      <find>id=&quot;delete-modal-index</find>
+      <find>table</find>
+      <find>flasher.min.js</find>
+      <find>flash</find>
+      <find>required</find>
+      <find>app.user</find>
     </findStrings>
+    <dirStrings>
+      <dir>D:\DEVELOPMENT\WWW\new_version\bitacora_icrt\templates</dir>
+      <dir>D:\DEVELOPMENT\WWW\new_version\bitacora_icrt</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -371,6 +151,35 @@
         <option value="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
         <option value="$PROJECT_DIR$/templates/credencial/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TareaEspecificaRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TareaRecurrenciaRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/IncidenciaRepository.php" />
+        <option value="$PROJECT_DIR$/templates/_themes/sneat/nav.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bitacora_principal/i_tareas_hoy.html.twig" />
+        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
+        <option value="$PROJECT_DIR$/templates/_themes/sneat/sidebar.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bitacora_principal/acerca_de.html.twig" />
+        <option value="$PROJECT_DIR$/templates/trabajador/index_card.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Trabajador.php" />
+        <option value="$PROJECT_DIR$/templates/_themes/sneat/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/trabajador/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/TrabajadorController.php" />
+        <option value="$PROJECT_DIR$/templates/trabajador/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/TrabajadorType.php" />
+        <option value="$PROJECT_DIR$/templates/trabajador/index_table.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/delete_modal_index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/form_delete_index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/includes/confirm_delete.html.twig" />
+        <option value="$PROJECT_DIR$/templates/guardia_equipo/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/GuardiaEquipo.php" />
+        <option value="$PROJECT_DIR$/src/Form/GuardiaEquipoType.php" />
+        <option value="$PROJECT_DIR$/templates/guardia_equipo/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/CalendarioController.php" />
+        <option value="$PROJECT_DIR$/src/Repository/GuardiaEquipoRepository.php" />
+        <option value="$PROJECT_DIR$/templates/bitacora_principal/i_guardia_hoy.html.twig" />
+        <option value="$PROJECT_DIR$/templates/bitacora_principal/index.html.twig" />
+        <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/MainController.php" />
       </list>
     </option>
   </component>
@@ -562,10 +371,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-251" />
-    <option name="width" value="1296" />
-    <option name="height" value="768" />
+    <option name="x" value="170" />
+    <option name="y" value="91" />
+    <option name="width" value="1020" />
+    <option name="height" value="546" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -606,7 +415,60 @@
               <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
               <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="_themes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="bitacora_principal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="credencial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="guardia_equipo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="trabajador" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="var" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="php-flasher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bitacora_icrt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bitacora_icrt" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="php-flasher" type="462c0819:PsiDirectoryNode" />
+              <item name="flasher" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -617,10 +479,16 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/trabajador" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DEVELOPMENT\WWW\new_version\bitacora_icrt\templates\trabajador" />
+      <recent name="D:\DEVELOPMENT\WWW\new_version\bitacora_icrt\templates\bitacora_principal" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -651,7 +519,8 @@
       <option name="presentableId" value="Default" />
       <updated>1685418032190</updated>
       <workItem from="1685418034274" duration="3878000" />
-      <workItem from="1686344370542" duration="582000" />
+      <workItem from="1686344370542" duration="1793000" />
+      <workItem from="1687802429576" duration="14634000" />
     </task>
     <task id="LOCAL-00001" summary="2023-06-09">
       <created>1686344604862</created>
@@ -667,17 +536,24 @@
       <option name="project" value="LOCAL" />
       <updated>1686344802468</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2023-06-09">
+      <created>1686345049843</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686345049843</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4460000" />
+    <option name="totallyTimeSpent" value="20305000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-251" width="1296" height="768" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25531915" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.25835866" />
+      <window_info id="Structure" order="1" sideWeight="0.5011442" side_tool="true" weight="0.25835866" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -690,8 +566,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2857143" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50151974" side_tool="true" weight="0.28477904" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49848023" visible="true" weight="0.28477904" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -707,27 +583,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2023-06-09" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/GuardiaEquipoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Security/ActiveDirectoryService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -742,13 +597,308 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GuardiaEquipoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TareaEspecificaRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="59" column="41" selection-start-line="59" selection-start-column="41" selection-end-line="59" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/IncidenciaRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TareaRecurrenciaRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/sneat/vendor/css/core.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="10015" column="1" selection-start-line="10015" selection-start-column="1" selection-end-line="10015" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+            <element signature="e#543#552#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/i_tareas_hoy.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding>
+            <element signature="e#829#843#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/sidebar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="228" column="43" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="43" />
+          <folding>
+            <element signature="e#6310#6319#0#Twig" expanded="true" />
+            <element signature="e#10527#10536#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Trabajador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="419" column="126" selection-start-line="419" selection-start-column="126" selection-end-line="419" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/acerca_de.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/credencial/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="137" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="137" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/credencial/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="187" selection-start-line="65" selection-start-column="187" selection-end-line="65" selection-end-column="187" />
+        <state relative-caret-position="901">
+          <caret line="53" column="38" selection-start-line="42" selection-start-column="32" selection-end-line="53" selection-end-column="38" />
           <folding>
-            <element signature="e#3711#3741#0#Twig" expanded="true" />
+            <element signature="e#12#40#0#Twig" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/flashes.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/php-flasher/flasher/Plugin/FlasherPlugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="46" column="73" selection-start-line="46" selection-start-column="73" selection-end-line="46" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/TECLAST/WWW/bitacora_full/vendor/php-flasher/flasher/Plugin/FlasherPlugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TrabajadorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trabajador/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/TrabajadorType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trabajador/index_card.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/delete_modal_index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/confirm_delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="86" selection-start-column="86" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/guardia_equipo/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/GuardiaEquipo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1837">
+          <caret line="143" column="30" selection-start-line="143" selection-start-column="30" selection-end-line="143" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/GuardiaEquipoType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trabajador/index_table.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/form_delete_index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="216" selection-start-line="3" selection-start-column="216" selection-end-line="3" selection-end-column="216" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/trabajador/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CalendarioController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/guardia_equipo/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="41" column="102" selection-start-line="41" selection-start-column="102" selection-end-line="41" selection-end-column="102" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/GuardiaEquipoRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/i_guardia_hoy.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bitacora_principal/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding>
+            <element signature="e#12#40#0#Twig" expanded="true" />
+            <element signature="e#213#255#0#Twig" expanded="true" />
+            <element signature="e#280#321#0#Twig" expanded="true" />
+            <element signature="e#418#460#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="86" column="41" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="41" />
+          <folding>
+            <element signature="e#4905#4936#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/_themes/sneat/nav.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
         </state>
       </provider>
     </entry>

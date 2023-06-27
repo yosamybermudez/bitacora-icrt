@@ -59,6 +59,20 @@ class TareaRecurrenciaRepository extends ServiceEntityRepository
         }
     }
 
+    public function findTareasHoy(bool $full_access){
+        $tareas = $this->findAll();
+        $tareas_periodicas = [];
+        foreach ($tareas as $tarea){
+            $rrule = new RRule($tarea->getRecurrencia());
+            $ocurrence  = $rrule->getNthOccurrenceFrom(new \DateTime(), -1);
+            if(date_format(new \DateTime(), 'Y-m-d') === date_format($ocurrence, 'Y-m-d')){
+                $tareas_periodicas[] = $tarea;
+            }
+
+        }
+        return $tareas_periodicas;
+    }
+
     public function findTareasAreaHoy(Usuario $usuario, bool $full_access){
         $tareas_area = $this->findTareasArea($usuario, $full_access);
         $tareas_periodicas = [];

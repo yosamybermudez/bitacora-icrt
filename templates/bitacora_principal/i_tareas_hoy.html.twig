@@ -1,3 +1,15 @@
+{% macro tarea(tarea) %}
+
+<div class="d-flex gap-2 w-100 list-group-item list-group-item-action d-flex gap-2 py-2 border-0 text-gray">
+    <span class="bx bxs-star align-self-center"></span>
+    <div class="flex-grow-1">
+        <p class="mb-0">{{ tarea.tarea.titulo }}</p>
+        <p class="mb-0 opacity-75"></p>
+    </div>
+</div>
+
+{% endmacro %}
+
 <div class="p-2 flex-fill">
     <div class="card h-100 bg-light text-dark">
         <h5 class="card-header text-primary">
@@ -7,16 +19,13 @@
             {% if tareas_periodicas_hoy %}
             <div class="list-group w-auto">
                 {% for tarea in tareas_periodicas_hoy %}
-                    <a href="{{ path('app_tarea_show', {'id': tarea.id }) }}" class="list-group-item list-group-item-action d-flex gap-2 py-2 border-0 text-gray" aria-current="true">
-                        <div class="d-flex gap-2 w-100">
-                            <span class="bx bxs-star align-self-center"></span>
-                            <div class="flex-grow-1">
-                                <p class="mb-0">{{ tarea.tarea.titulo }}</p>
-                                <p class="mb-0 opacity-75"></p>
-                            </div>
-                        </div>
-                    </a>
-                    </a>
+                    {% if app.user %}
+                        <a href="{{ app.user ? path('app_tarea_show', {'id': tarea.id })  : '#' }}" class="" aria-current="true">
+                            {{ _self.tarea(tarea) }}
+                        </a>
+                    {% else %}
+                            {{ _self.tarea(tarea) }}
+                    {% endif %}
                 {% endfor %}
             </div>
             {% else %}

@@ -30,13 +30,16 @@ class MainController extends AppController
                           GuardiaEquipoRepository $guardiaEquipoRepository,
                           BotTelegram $botTelegram): Response
     {
-        $tareas_periodicas = $tareaRecurrenciaRepository->findTareasAreaHoy($this->getUser(),$this->isGranted('ROLE_JEFE_INFORMATICA'));
-        $tareas_especificas = $tareaEspecificaRepository->findTareasPendientes($this->getUser(), $this->isGranted('ROLE_JEFE_INFORMATICA'));
-        /***/
-        $equipo = $guardiaEquipoRepository->findEquipoGuardiaHoy();
-        /**/
-        $incidencias_no_solucionadas = $incidenciaRepository->findIncidenciasNoSolucionadasPorArea($this->getUser(), $this->isGranted('ROLE_JEFE_INFORMATICA'));
 
+
+        $tareas_periodicas = $tareaRecurrenciaRepository->findTareasHoy($this->isGranted('ROLE_JEFE_INFORMATICA'));
+        $tareas_especificas = $tareaEspecificaRepository->findTareasPendientes($this->getUser(), $this->isGranted('ROLE_JEFE_INFORMATICA'));
+        $equipo = $guardiaEquipoRepository->findEquipoGuardiaHoy();
+        if($this->getUser()){
+            $incidencias_no_solucionadas = $incidenciaRepository->findIncidenciasNoSolucionadasPorArea($this->getUser(), $this->isGranted('ROLE_JEFE_INFORMATICA'));
+        } else {
+            $incidencias_no_solucionadas = $incidenciaRepository->findIncidenciasNoSolucionadas();
+        }
         return $this->render('bitacora_principal/index.html.twig', [
             'guardia_hoy' => $equipo,
             'tareas_periodicas_hoy' => $tareas_periodicas,
@@ -52,6 +55,15 @@ class MainController extends AppController
     {
         return $this->render('usuario/profile.html.twig', [
             'usuario' => $this->getUser()
+        ]);
+    }
+
+    /**
+     * @Route("/acerca-de", name="app_about")
+     */
+    public function about(): Response
+    {
+        return $this->render('bitacora_principal/acerca_de.html.twig', [
         ]);
     }
 }

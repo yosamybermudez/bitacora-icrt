@@ -132,6 +132,11 @@ class Trabajador
      */
     private $usuario;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $municipio;
+
     public function __construct()
     {
         $this->fake = false;
@@ -188,10 +193,10 @@ class Trabajador
         return $this;
     }
 
-    public function getTelefonos(): ?array
-    {
-        return $this->telefonos;
-    }
+//    public function getTelefonos(): ?array
+//    {
+//        return $this->telefonos;
+//    }
 
     public function setTelefonos(?array $telefonos): self
     {
@@ -412,6 +417,22 @@ class Trabajador
         }
 
         $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    public function getTelefonos(){
+        return $this->getTelefonoPrincipal() . ($this->getTelefonoAlternativo() ? ', ' . $this->getTelefonoAlternativo() : '');
+    }
+
+    public function getMunicipio(): ?string
+    {
+        return $this->municipio;
+    }
+
+    public function setMunicipio(?string $municipio): self
+    {
+        $this->municipio = $municipio;
 
         return $this;
     }

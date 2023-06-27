@@ -1,5 +1,5 @@
 <div class="p-2 flex-fill">
-    <div class="card h-100 bg-light text-dark">
+    <div class="card h-100 bg-light text-dark col-sm-12">
         <h5 class="card-header d-flex text-primary">
             <span class="bx bx-calendar-exclamation align-self-center pe-2"></span>De guardia hoy
         </h5>
@@ -11,9 +11,10 @@
                     'VSN 1' : 'InformaticoVSN1',
                     'VSN 2' : 'InformaticoVSN2',
                     'Corporativa' : 'InformaticoCorporativa',
-                    'Estudio' : 'TecnicoEstudio'}
+                    'Taller' : 'Tecnico'}
                 %}
                 {% for key, value in var %}
+                    {% if attribute(guardia_hoy, value) %}
                     <a class="col-6 text-center link-dark" href="{{ path('app_trabajador_show', {'id' : attribute(attribute(guardia_hoy, value), 'id') }) }}">
 {#                        <img src="{{ attribute(attribute(guardia_hoy, value), 'foto')}}" class="rounded-circle me-2" width='75' height='75'>#}
                         <img src="{% include 'includes/trabajador_foto.html.twig' with { 'trabajador' : attribute(guardia_hoy, value) }%}" class="rounded-circle me-2" width='75' height='75'>
@@ -21,6 +22,7 @@
                         <p class="mb-0">{{ attribute(attribute(guardia_hoy, value), 'nombreCompleto') }}</p>
                         <p class="fst-italic"><small>{{ key }}</small></p>
                     </a>
+                    {% endif %}
                 {% endfor %}
             </div>
             {% else %}

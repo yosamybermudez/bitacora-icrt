@@ -30,21 +30,21 @@ class GuardiaEquipo
 
     /**
      * @ORM\ManyToOne(targetEntity=Trabajador::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $informatico_vsn_2;
 
     /**
      * @ORM\ManyToOne(targetEntity=Trabajador::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $informatico_corporativa;
 
     /**
      * @ORM\ManyToOne(targetEntity=Trabajador::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $tecnico_estudio;
+    private $tecnico;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -136,14 +136,14 @@ class GuardiaEquipo
         return $this;
     }
 
-    public function getTecnicoEstudio(): ?Trabajador
+    public function getTecnico(): ?Trabajador
     {
-        return $this->tecnico_estudio;
+        return $this->tecnico;
     }
 
-    public function setTecnicoEstudio(?Trabajador $tecnico_estudio): self
+    public function setTecnico(?Trabajador $tecnico): self
     {
-        $this->tecnico_estudio = $tecnico_estudio;
+        $this->tecnico = $tecnico;
 
         return $this;
     }

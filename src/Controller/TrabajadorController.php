@@ -114,6 +114,7 @@ class TrabajadorController extends AppController
             }
 
         }
+        $this->addUpdated();
         return $this->renderForm('trabajador/new.html.twig', [
             'trabajador' => $trabajador,
             'trabajadores' => $trabajadorRepository->findAll(),

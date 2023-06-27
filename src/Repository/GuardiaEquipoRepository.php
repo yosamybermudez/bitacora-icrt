@@ -61,7 +61,8 @@ class GuardiaEquipoRepository extends ServiceEntityRepository
         $equipos = $this->findAll();
         foreach ($equipos as $equipo){
             $rrule = new RRule($equipo->getRecurrencia());
-            $ocurrence  = $rrule->getNthOccurrenceFrom(new \DateTime(), -1);
+//
+            $ocurrence  = $rrule->getNthOccurrenceFrom('now', -1);
             if(date_format(new \DateTime(), 'Y-m-d') === date_format($ocurrence, 'Y-m-d')){
                 return $equipo;
             }

@@ -1,0 +1,41 @@
+<div class="row card-holder d-flex flex-wrap">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table data-table">
+                    <thead>
+                    <th>Nombre(s) y apellidos</th>
+                    <th>Cargo</th>
+                    <th>Área</th>
+                    <th>Teléfono(s)</th>
+                    <th>Municipio</th>
+                    <th></th>
+                    </thead>
+                    {% for trabajador in trabajadores %}
+                        <tr>
+                            <td>{{ trabajador.nombreCompleto }}</td>
+                            <td>{{ trabajador.cargo.nombre }}</td>
+                            <td>{{ trabajador.area.nombre }}</td>
+                            <td>{{ trabajador.municipio }}</td>
+                            <td>{{ trabajador.telefonos }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item btn-show" href="{{ path('app_trabajador_show', {'id': trabajador.id }) }}"><i class="bx bxs-show me-1"></i>Mostrar</a>
+                                        {% if is_granted('ROLE_JEFE_INFORMATICA') %}
+                                            <a class="dropdown-item btn-edit" href="{{ path('app_trabajador_edit', {'id': trabajador.id }) }}"><i class="bx bxs-edit-alt me-1"></i>Editar</a>
+                                            {% include 'includes/form_delete_index.html.twig' with {'path' : 'app_trabajador_delete', 'entity' : trabajador }%}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,6 +43,7 @@ class GuardiaEquipoType extends AbstractType
                         ->where('a.nombre=\'VSN\'')
                         ->orderBy('t.nombres', 'ASC');
                 },
+                'required' => false
             ])
             ->add('informatico_corporativa', EntityType::class, [
                 'class' => Trabajador::class,
@@ -54,8 +55,9 @@ class GuardiaEquipoType extends AbstractType
                         ->where('a.nombre=\'Corporativa\'')
                         ->orderBy('t.nombres', 'ASC');
                 },
+                'required' => false
             ])
-            ->add('tecnico_estudio', EntityType::class, [
+            ->add('tecnico', EntityType::class, [
                 'class' => Trabajador::class,
                 'choice_label' => 'nombre_completo',
                 'placeholder' => 'Seleccione',
@@ -65,9 +67,10 @@ class GuardiaEquipoType extends AbstractType
                         ->where('a.nombre=\'Estudio\'')
                         ->orderBy('t.nombres', 'ASC');
                 },
+                'required' => false
             ])
             ->add('fecha_referencia', DateType::class, [
-                'label' => 'Fecha de referencia 24 x 72',
+                'label' => 'Fecha de referencia',
                 'widget' => 'single_text'
             ])
             ->add('colorCalendario', ColorType::class)
